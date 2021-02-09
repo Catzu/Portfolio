@@ -122,9 +122,9 @@
 
         /* Code skills bar */
 
-        .html {width: 65%; background-color: purple;}
-        .css {width: 60%; background-color: purple;}
-        .javascript {width: 30%; background-color: purple;}
+        .html {width: 85%; background-color: purple;}
+        .css {width: 70%; background-color: purple;}
+        .javascript {width: 50%; background-color: purple;}
 
         .container {
             margin-left: 25%;
