@@ -1,0 +1,27 @@
+body {
+    background-color: #181818;
+    margin-left: 10%;
+    margin-right: 20%;
+}
+
+.onderdeelText {
+    color: #ffff;
+    font-family: 'Lato', sans-serif;
+}
+
+.navText {
+    color: #ffff;
+    font-family: 'Lato', sans-serif;
+    float: left;
+    margin-right: 3%;
+}
+
+.bodyText {
+    margin-left: 13.9%;
+}
+
+.navText2 {
+    color: #ffff;
+    font-family: 'Lato', sans-serif;
+}
+
