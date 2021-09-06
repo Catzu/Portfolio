@@ -7,6 +7,8 @@ body {
 .onderdeelText {
     color: #ffff;
     font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .navText {
@@ -25,3 +27,47 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.pageMargin {
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+
+.specialTopMargin {
+    margin-top: 25%;
+}
+
+.specialBotMargin {
+    margin-bottom: 35%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#section1 {
+
+}
+
+#section2 {
+    padding-top: 300px;
+}
+
+#section3 {
+    padding-top: 300px;
+}
+
+#section4 {
+    padding-top: 300px;
+}
+
+#section5 {
+    padding-top: 300px;
+}
+
+#section6 {
+    padding-top: 300px;
+}
+
+#section7    {
+    padding-top: 300px;
+}
