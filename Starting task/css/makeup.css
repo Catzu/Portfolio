@@ -38,6 +38,7 @@ body {
 
 .specialBotMargin {
     margin-bottom: 35%;
+    margin-right: 15%;
 }
 
 html {
@@ -70,10 +71,12 @@ html {
 
 #section7 {
     padding-top: 300px;
+    margin-bottom: 15%;
 }
 
 #section8 {
     padding-top: 0%;
+    padding-bottom: 0%;
 }
 
 
