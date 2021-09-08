@@ -12,11 +12,11 @@ body {
 }
 
 .navText {
-    margin-right: 3%;
     color: #ffff;
     font-family: 'Lato', sans-serif;
     margin-right: 3%;
     float: left;
+    margin-right: 3%;
 }
 
 .bodyText {
