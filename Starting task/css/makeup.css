@@ -1,7 +1,6 @@
 body {
     background-color: #181818;
-    margin-left: 10%;
-    margin-right: 20%;
+    margin: 0%;
 }
 
 .onderdeelText {
@@ -20,7 +19,7 @@ body {
 }
 
 .bodyText {
-    margin-left: 13.9%;
+    margin-left: 13.90%;
 }
 
 .navText2 {
@@ -69,6 +68,49 @@ html {
     padding-top: 300px;
 }
 
-#section7    {
+#section7 {
     padding-top: 300px;
+}
+
+#section8 {
+    padding-top: 0%;
+}
+
+
+/* to hide scrollbar */
+::-webkit-scrollbar {
+    display: none;
+    }
+
+/* moving navbar */
+
+.navbar {
+  overflow: hidden;
+  background-color: rgb(49, 49, 49);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffff;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px; /* Used in this example to enable scrolling */
 }
