@@ -1,0 +1,75 @@
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title></title>
+
+        <style>
+
+            * {
+
+                margin: 0;
+
+                padding: 0;
+
+                box-sizing: border-box;
+
+            
+
+            }
+
+            .general {
+
+                height: 100vh;
+
+            }
+
+            .general-1 {
+
+                background: blue;
+
+            }
+
+            .general-2 {
+
+                background: yellow;
+
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="general general-1"></div>
+
+        <div class="general general-2"></div>
+
+        <script>
+
+            const [div1, div2] = document.querySelectorAll('div');
+
+            let busy = false;
+
+            window.addEventListener('wheel', function(){
+
+                if (busy) return;
+
+                busy = true;
+
+                window.scrollY > (window.innerHeight - 10) ? window.scrollTo(0, 0) :window.scrollTo(0, window.innerHeight);
+
+               
+
+                busy = false;
+
+            });
+
+        </script>   
+
+    </body>
+
+</html>

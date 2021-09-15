@@ -6,17 +6,21 @@ body {
   margin: 0px;
 }
 
+.main {
+    width: 100%;
+    height: 100vh;
+}
+
 .test1 {
     background: rgba(0, 0, 0, 0.5);
     background-size: cover;
-    margin-top: 1080px;
     width: 100%;
-    height: 1080px;
-    
+    height: 100vh;
 }
 
 .test2 {
-    padding: 5%; 
+    margin: 0%;
+    padding: 5%;
     color: white;
 }
 
@@ -25,3 +29,15 @@ body {
     padding-right: 5%;
     color: white;
 }
+
+.scroller {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.scroller section {
+    scroll-snap-align: start;
+    scroll-behavior: smooth;
+} 
