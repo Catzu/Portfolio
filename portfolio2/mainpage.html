@@ -8,8 +8,9 @@
     <meta charset="utf-8"/>
 
     <style>
-        .item1 {
+        .item1 { /*bar*/
             display: block;
+            position:absolute;
             width: 200px;
             height: 30px;
             /*background: blue;*/
@@ -18,18 +19,46 @@
             outline: 2px red;
         }
 
-        .item2 {
+        .item2 { /*connector*/
+            margin-top: 30px;
             margin-left: 110px;
             display: block;
-            width: 30px;
+            position:absolute;
+            width: 50px;
             height: 20px;
             /*background: #dd6b4d;*/
             background-color: #FAF9F6;
         }
 
-        .item3 {
-            margin-left: 80px;
+        .item2-1 {
+            margin-left: 100px;
+            margin-top: 30px;
             display: block;
+            position:absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            /*background: #dd6b4d;*/
+            background-color: #f3e9d5;
+        }
+
+        .item2-2 {
+            margin-left: 152px;
+            margin-top: 30px;
+            display: block;
+            position:absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            /*background: #dd6b4d;*/
+            background-color: #f3e9d5;
+        }
+
+        .item3 { /*bar*/
+            margin-left: 80px;
+            margin-top: 50px;
+            display: block;
+            position:absolute;
             width: 210px;
             height: 30px;
             /*background: blue;*/
@@ -37,34 +66,71 @@
             border-radius: 25px;
         }
 
-        .item4 {
+        .item4 { /*connector*/
             margin-left: 200px;
+            margin-top: 80px;
             display: block;
-            width: 30px;
+            position:absolute;
+            width: 50px;
             height: 15px;
             /*background: #dd6b4d;*/
             background-color: #FAF9F6;
         }
 
-        .item5 {
-            margin-left:170px;
+        .item4-1 {
+            margin-left: 190px;
+            margin-top: 80px;
             display: block;
-            width: 180px;
+            position:absolute;
+            width: 20px;
+            height: 15px;
+            border-radius: 100%;
+            /*background: #dd6b4d;*/
+            background-color: #f3e9d5;
+        }
+
+        .item4-2 {
+            margin-left: 242px;
+            margin-top: 80px;
+            display: block;
+            position:absolute;
+            width: 20px;
+            height: 15px;
+            border-radius: 100%;
+            /*background: #dd6b4d;*/
+            background-color: #f3e9d5;
+        }
+
+         .item5 {/*bar*/
+            margin-left:170px;
+            margin-top: 95px;
+            display: block;
+            position:absolute;
+            width: 240px;
             height: 30px;
             /*background: blue;*/
             background-color: #FAF9F6;
             border-radius: 25px;
         }
+
+        .cloud1 {
+            
+        }
+
     </style>
 
 </head>
 <body>
-    <section class="cloud1">
+    <div class="cloud1">
         <div class="item1"></div>
         <div class="item2"></div>
+        <div class="item2-1"></div>
+        <div class="item2-2"></div>
         <div class="item3"></div>
         <div class="item4"></div>
+        <div class="item4-1"></div>
+        <div class="item4-2"></div>
         <div class="item5"></div>
-    </section>
+    </div>
 </body>
 </html>
