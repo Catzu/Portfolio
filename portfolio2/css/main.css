@@ -39,3 +39,21 @@ body {
 .scroller section {
     scroll-snap-align: start;
 }
+
+.centering {
+    text-align: center;
+    padding-top: 20%;
+    color: white;
+}
+
+.textMain {
+    font-size: 60px;
+    color: white;
+    margin: 0;
+}
+
+.textSub{
+    font-size: 20px;
+    color: white;
+    margin: 0;
+}
