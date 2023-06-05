@@ -46,14 +46,14 @@ body {
     color: white;
 }
 
-.textMain {
+.fadeinMain {
     font-size: 60px;
     color: white;
     margin: 0;
     animation: fadein 2s;
 }
 
-.textSub{
+.fadeinSub{
     font-size: 20px;
     color: white;
     margin: 0;
