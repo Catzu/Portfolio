@@ -1,0 +1,13 @@
+/* footer */
+footer .fa-size {
+font-size: 25px;
+}
+
+footer .social-media a {
+    color: black; /* social media icon color */
+    text-decoration: none;
+}
+
+.bottom { /* done ugly but its so the footer stays at the bottom of the website */
+    margin-top: 14%;
+}

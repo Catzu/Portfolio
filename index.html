@@ -1,101 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>
-        NTN
-    </title>
-        <!-- fonts -->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" type="image/png" href="Images/favicon2.png"/>
-     
-        <!-- css -->
-        <link rel="stylesheet" href="css/main.css"/>
-
-        <!-- Credits to the FullPage creator Alvaro Trigo -->
-        <link rel="stylesheet" type="text/css" href="res/fullpage.css" />    
-
-        <!-- language -->
-        <meta charset="utf-8"/>
-
-</head>
-<body style="background-color:#181818">   
-
-    <div id="fullpage">
-        <div id="infoMenu">
-        </div>
-        <div class="section active" id="section0"><h1>
-          <h1 class="name1"><marquee behavior="slide" direction="down" scrollamount="10"><div class="name">that Nguyen</div></marquee></h1>
-          <h2 class="namesub2"><marquee behavior="slide" direction="down" scrollamount="2"><div class="namesub">Software Developer</div></marquee></h2>
-        </h1>
-    </div>
-    <div class="section" id="section1">
-            <h2 class="titleText">Hello I'm That Nguyen</h2>
-        <h3 class="frontText">I'm a student and mainly learn HTML, CSS and Javascript. I have been  <br>in touch with numerous coding languages for example Java, Javascript,<br> HTML, CSS, PHP, SQL and am eager to learn more about them.</h3>
-        <h3 class="frontText">How to get in touch with me? <a class="link" href="mailto:nt7nguyen@gmail.com" target="_blank">Contact me right here.</a></h3>
-    </div>
-    <div class="section" id="section2">
-            <h1 class="titleText">Coding Skills</h1>
-            <h3 class="frontText">HTML</h3>
-            <div class="container">
-                <div class="skills html"><b>85% &nbsp;&nbsp;</b></div>
+    <head>
+        <meta charset="UTF8">
+        <title>That Nguyen</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/index.css">
+        <link rel="stylesheet" href="assets/css/accordion.css">
+        <link rel="stylesheet" href="assets/css/footer.css">
+        <link rel="icon" type="image/web-icon" href="assets/img/favicon.jpg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Inter Tight' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <div class="responsiveness">
+                <div class="image-container image-container:hover">
+                    <a href="index.html">
+                        <img alt="icon" class="round" src="assets/avatar/avatar.jpg">
+                    </a>
+                </div>
+                <div class="flex">
+                    <h1 class="sizeName inter">Ngoc That Nguyen</h1>
+                    <h2 class="sizeOccupation interTight">Software developer</h2>
+                    <div class="sizeLocation interTight"><i class="fa-solid fa-location-dot fa-mar-lef icon-color"></i>The Netherlands</div>
+                </div>
             </div>
-            <h3 class="frontText">CSS</h3>
-            <div class="container">
-                <div class="skills css"><b>75% &nbsp;&nbsp;</b></div>
+            <hr>
+        </header>
+
+        <!-- Main Content (Accordion) -->
+        <div class="accordion-container">
+            <button class="accordion"><i class="fa-solid fa-user icon-color icon-space"></i>About</button>
+            <div class="panel">
+                <p>I'm a software developer from the Netherlands with a passion for all things related to web, software and game development.</p>
             </div>
-            <h3 class="frontText">Javascript</h3>
-            <div class="container">
-                <div class="skills javascript"><b>60% &nbsp;&nbsp;</b></div>
+
+            <button class="accordion"><i class="fa-solid fa-book icon-color icon-space"></i>Skills</button>
+            <div class="panel">
+                <!-- Card html -->
+                <div class="card-body"> 
+                    <div class="card-top">
+                        <div class="card-flex JSS">
+                            <div class="card-icon"><i class="fa-brands fa-html5"></i></div>
+                            <span class="card-title">HTML</span>
+                        </div>
+                        <a class="card-flex JSE" href="https://html.spec.whatwg.org/" target="_blank">
+                            <span>HTML</span> 
+                            <i class="fa-solid fa-link"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <p>Hypertext Markup Language is the standard markup language for documents designed to be displayed in a web browser. It defines the content and structure of web content.</p>
+                    </div>
+                </div>
+
+                <!-- Card css -->
+                <div class="card-body">
+                    <div class="card-top">
+                        <div class="card-flex JSS">
+                            <div class="card-icon"><i class="fa-brands fa-css3"></i></div>
+                            <span class="card-title">CSS</span>
+                        </div>
+                        <a class="card-flex JSE" href="https://www.w3.org/TR/CSS/#css" target="_blank">
+                            <span>CSS</span> 
+                            <i class="fa-solid fa-link"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <p>Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML.</p>
+                    </div>
+                </div>
+
+                <!-- Card PHP -->
+                <div class="card-body">
+                    <div class="card-top">
+                        <div class="card-flex JSS">
+                            <div class="card-icon"><i class="fa-brands fa-php"></i></div>
+                            <span class="card-title">PHP</span>
+                        </div>
+                        <a class="card-flex JSE" href="https://www.php.net/" target="_blank">
+                            <span>PHP</span> 
+                            <i class="fa-solid fa-link"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <p>PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open source general-purpose scripting language that is especially suited for web development and can be embedded into HTML.</p>
+                    </div>
+                </div>
+
+                <!-- Card JS -->
+                <div class="card-body">
+                    <div class="card-top">
+                        <div class="card-flex JSS">
+                            <div class="card-icon"><i class="fa-brands fa-js"></i></div>
+                            <span class="card-title">JavaScript</span>
+                        </div>
+                        <a class="card-flex JSE" href="https://www.javascript.com/" target="_blank">
+                            <span>JavaScript</span> 
+                            <i class="fa-solid fa-link"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <p>JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else.</p>
+                    </div>
+                </div>
+
+                <!-- Card MySQL -->
+                <div class="card-body">
+                    <div class="card-top">
+                        <div class="card-flex JSS">
+                            <div class="card-icon"><i class="fa-solid fa-database"></i></div>
+                            <span class="card-title">MySQL</span>
+                        </div>
+                        <a class="card-flex JSE" href="https://www.mysql.com/" target="_blank">
+                            <span>MySQL</span> 
+                            <i class="fa-solid fa-link"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <p>MySQL is a popular and powerful database that powers many of the world's most accessed applications, including Facebook, Twitter, Netflix, and Airbnb.</p>
+                    </div>
+                </div>
             </div>
-            <h3 class="frontText">PHP</h3>
-            <div class="container">
-                <div class="skills php"><b>80% &nbsp;&nbsp;</b></div>
+
+            <button class="accordion"><i class="fa-solid fa-folder icon-color icon-space"></i>Projects</button>
+            <div class="panel">
+                <!-- Card html | ladderservice -->
+                <div class="card-body"> 
+                    <div class="card-top">
+                        <div class="card-flex JSS">
+                            <span class="card-title">Ladderservice</span>
+                        </div>
+                        <div class="card-flex JSE">
+                            <span class="code-boxes">18-08-2022</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p>During my internship at Raion Design, I contributed to the design and development of websites for Demees Ventilatie and Ladder Service. These projects helped me refine my skills in creating functional, user-friendly designs while meeting client needs, industry standards, and tight deadlines.</p>
+                        <div>
+                            <a class="card-flex JSE" href="https://ladderservice.nl/" target="_blank">
+                                <img class="accordion-img" src="assets/img/ladderservice.jpg" alt="Ladderservice website"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card html | demeesventilatie -->
+                <div class="card-body"> 
+                    <div class="card-top">
+                        <div class="card-flex JSS">
+                            <span class="card-title">De Mees Ventilatie</span>
+                        </div>
+                        <div class="card-flex JSE">
+                            <span class="code-boxes">06-07-2022</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p>During my internship at Raion Design, I worked on improving my web design and development skills by taking on diverse projects. One of the websites I contributed to was for Demees Ventilatie, a company offering ventilation solutions. Designing and developing this website provided me with valuable experience in building a functional and visually appealing online presence. It was a rewarding opportunity to apply my knowledge while learning how to balance client requirements with user-friendly design.</p>
+                        <div>
+                            <a class="card-flex JSE" href="https://demeesventilatie.nl/" target="_blank">
+                                <img class="accordion-img" src="assets/img/meesventilatie.jpg" alt="De Mees Ventilatie website"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card html | interplast -->
+                <div class="card-body"> 
+                    <div class="card-top">
+                        <div class="card-flex JSS">
+                            <span class="card-title">Stichting Interplast Holland</span>
+                        </div>
+                        <div class="card-flex JSE">
+                            <span class="code-boxes">14-06-2022</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p>During my internship at Raion Design, I focused on advancing my web design and WordPress skills, stepping out of my comfort zone to take on new challenges. Among the projects I contributed to, I am especially proud of my work on a website for Interplast.org, a nonprofit organization dedicated to providing free reconstructive surgery and medical care to people in underserved regions. Their mission deeply resonated with me, which motivated me to deliver my best work.</p>
+                        <div>
+                            <a class="card-flex JSE" href="https://interplastholland.org/" target="_blank">
+                                <img class="accordion-img" src="assets/img/interplast.jpg" alt="Interplast Holland website"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card html | sans -->
+                <div class="card-body"> 
+                    <div class="card-top">
+                        <div class="card-flex JSS">
+                            <span class="card-title">San's Nightmare</span>
+                        </div>
+                        <div class="card-flex JSE">
+                            <span class="code-boxes">11-11-2019</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p>This project was completed during a school project week, with the goal of developing and publishing a Greenfoot game within the allotted time. Greenfoot, an integrated development environment for Java, was used to create an interactive game, helping me improve my Java skills.</p>
+                        <div>
+                            <a class="card-flex JSE" href="https://www.greenfoot.org/scenarios/24774" target="_blank">
+                            <img class="accordion-img" src="assets/img/sans.png" alt="San's Nightmare game"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
-    <div class="section" id="section3">
-        <div class="slide"><h1 class="subTextNoIMG">P&nbsp;r&nbsp;o&nbsp;j&nbsp;e&nbsp;c&nbsp;t&nbsp;s</h1>
+                    
+            <button class="accordion"><i class="fa-solid fa-address-card icon-color icon-space"></i>CV</button>
+            <div class="panel">
+                <div class="cv">
+                    <a href="assets/cv/cvNL.pdf" download="CVNL" class="btn">
+                        <i class="fa fa-download"></i> Dutch version
+                    </a>
+                    <a href="assets/cv/cvEN.pdf" download="CVEN" class="btn">
+                        <i class="fa fa-download"></i> English version
+                    </a>
+                </div>
+            </div>
+
+            <button class="accordion"><i class="fa-solid fa-envelope icon-color icon-space"></i>Contacts</button>
+            <div class="panel">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="6a34771e-cbc9-4053-ba54-deb02e76e641">
+                    <label class="form-title" for="fname">Full Name:</label><br>
+                    <input type="text" id="fname" name="fname" placeholder="John Doe"><br>
+                    <label class="form-title" for="email">E-Mail:</label><br>
+                    <input type="text" id="email" name="email" placeholder="JohnDoe@gmail.com"><br>
+                    <label class="form-title" for="messages">Message:</label><br>
+                    <textarea id="message" name="message" rows="4" cols="50" placeholder="Type message here!"></textarea>
+                    <br>
+                    <input class="btn" type="submit" value="Submit">
+                </form>
+            </div>
         </div>
-        <div class="slide"><h1 class="titleText">Greenfoot</h1>
-            <h1 class="titleText">Solo project: Sans's Nightmare <a class="link" href="https://www.greenfoot.org/scenarios/24774" target="_self">Try it out!</a>
-                <h3 class="subtext">This project was created while working in a project week on school. The requirements were finishing the project in the week time we were given. It had to be coded in a program called Greenfoot and published to the GreenFoot website. <br><br>GreenFoot is an integrated development environment using Java. In this week I learned to work better with Java to make an interactive game. <br><br>This game uses the w,a,s,d keys to walk into directions and I coded it in a way that when you press a movement key such as D the sprite would walk right. In this game I worked on the movements, movement animations, shooting, shooting animations, HP bar, score counter, heart tracking and music integration.</h3>
-                <img class="subIMG" src="Images/projectimg/sanssnightmare.jpg" alt="a picture of the demo game sansnightmare">
-            </h1>
-        </div>
-        <div class="slide"><h1 class="titleText">BierHier</h1>
-            <h1 class="titleText">Group project: Bier Hier <a class="link" href="Projects/BierHier/" target="_self">Head to website!</a>
-                <h3 class="subtext">In this project we were tasked to make an website, sounds rather easy right? Well it was our first experience working in a group of 4 people.<br><br>We had 5 pages, header and footer. So we divided the workload by giving everyone alteast 1 page to complete so they could do whatever they wished to do with that page. We gave the homepage, header, footer to the 3 people who finished early and the last person had to link all the pages together. <br><br> I personally contributed to linken pages with each other, Recepten page, Sport page, Home page, Header and footer.</h3>
-                <img class="subIMG" src="Images/projectimg/bierhier.JPG" alt="a picture of the website">
-            </h1>
-        </div>
-        <div class="slide"><h1 class="titleText">BitScrum</h1>
-            <h1 class="titleText">Group project: Type-Racer <a class="link" href="Projects/BitScrum/index.php" target="_self">Try it out!</a>
-                <h3 class="subtext">In this project we were orignally in a group of 4 but expanded to 5 due an student entering late. We had multiple project topics to choose from and personally I wouldn't have chosen for this one due the heavy game programming it required but I had gotten out voted. My reasoning for this was that I personally knew I would get a hard task(I was right)<br><br>I was tasked with the game logic for the type-racer. I personally didn't know much about php at the time so making this was quite daunting at the time. As we got closer to the deadline I began to notice I started to fall behind and requested help from my fellow groupmates. Together we had finished the project in the nick of time. <br><br> due our incompetence to communicate I learned how important it was to communicate with each other.</h3>                
-                <img class="subIMG" src="Images/projectimg/typeracer.JPG" alt="a picture of the website">
-            </h1>
-        </div>
-        <div class="slide"><h1 class="titleText">Raion Design</h1>
-            <p class="titleSubText">Intership: WordPress</p>
-            <h1 class="titleText">Interplast Holland <a class="link" href="https://interplastholland.nl/" target="_self">Head to website!</a>
-                <h3 class="subtext">During my internship at Raion Design I had learned a lot of webdesigning and wordpress. Things that I was looking to learn so I would go outside my comfort zone. I produced and created a lot of websites throughout my internship, but I'm most happy of this one since I was so passionate about it and their noble cause! <br><br>In this project I was orignally assigned to make the homepage but in the end I was able to try and do everything with the guidance and help of my superviser.<br><br>I'm proud to say that ive spend my time well and that this internship was worth the 5 months. I learned communicating with my collegues, wring notes, I got more active in speaking about problems and I got proficient in working with wordpress</h3>                
-                <img class="subIMG" src="Images/projectimg/interplast.JPG" alt="a picture of the website">
-            </h1>
-        </div>
-        <div class="slide"><h1 class="titleText">Webshop project</h1>
-            <h1 class="titleText">Solo project: Flower Power <a class="link" href="https://flowerpower215.000webhostapp.com/index.php" target="_self">Head to website!</a>
-                <h3 class="subtext">This project is a flower webshop, supervised by my examinator. <br><br>In this project I learned how to have a customer meeting, how to time my time so I can work faster or slower depending on my time set schedule.<br><br> The webshop needed to have a home page, product page, contact, information, user login, user logout, user editing, user deleting, admin login, admin logout, admin editing, add product page, edit product page and order page. <br><br>Personally it was really though, with having to watch a ton of videos and rereading code so I could comprehent it. It really was tough and challeging but also really fun to do.</h3>                
-                <img class="subIMG" src="Images/projectimg/flowerpower.JPG" alt="a picture of the website">
-            </h1>
-        </div>
-    </div>
-      
-    <script type="text/javascript" src="res/fullpage.js"></script>
-    <script type="text/javascript">
-        var myFullpage = new fullpage('#fullpage', {
-            sectionsColor: ['#181818']
-        });
-    </script>
-</body>
+
+        <!-- Footer -->
+        <footer class="bottom responsiveness">    
+            <div class="fa-size social-media">
+                <a href="https://github.com/Catzu" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/that-nguyen-b03434159/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/thatje_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/aihoshinofan20" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <div class="sizeLocation">
+                Copyright © 2024 - Ngoc That Nguyen - All Rights Reserverd
+            </div>
+        </footer>
+
+        <script src="assets/js/accordion.js"></script>
+    </body>
 </html>
