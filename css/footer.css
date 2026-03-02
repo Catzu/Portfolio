@@ -1,0 +1,14 @@
+#site-footer {
+    border-top: 1px solid rgba(255,255,255,.07);
+    padding: 24px clamp(1.5rem,6vw,5rem);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+}
+.footer-left { font-size: 7.5px; letter-spacing: .12em; color: rgba(255,255,255,.2); }
+.footer-nav { display: flex; gap: 2rem; list-style: none; margin-left: auto; }
+.footer-nav a {
+    font-family: 'Syne', sans-serif; font-size: .65rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.22);
+    text-decoration: none; transition: color .2s;
+}
+.footer-nav a:hover { color: var(--accent); }
