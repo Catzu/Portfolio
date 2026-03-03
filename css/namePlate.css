@@ -1,0 +1,18 @@
+#car-nameplate {
+    position: absolute; bottom: 60px; right: 40px; z-index: 11;
+    font-size: 9px; letter-spacing: .22em; color: rgba(255,255,255,.55);
+    text-align: right; pointer-events: none;
+    opacity: 0; transition: opacity .3s;
+}
+#car-nameplate.show { opacity: 1; }
+
+
+.scroll-cue {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    z-index: 10; pointer-events: none;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    opacity: 0; animation: scrollFadeIn .6s 1.8s ease forwards;
+}
+@keyframes scrollFadeIn { to { opacity: 1; } }
+.scroll-cue-text { font-size: 7px; letter-spacing: .22em; color: var(--accent); font-family: monospace; opacity: .7; }
+.scroll-cue-line { width: 1px; height: 18px; background: linear-gradient(to bottom, var(--accent), transparent); }

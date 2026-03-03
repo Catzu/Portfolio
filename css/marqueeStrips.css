@@ -1,0 +1,15 @@
+.marquee-wrap {
+    overflow: hidden; border-top: 1px solid rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    padding: 14px 0; white-space: nowrap;
+}
+.marquee-inner {
+    display: inline-block;
+    animation: marqueeScroll 28s linear infinite;
+}
+@keyframes marqueeScroll { to { transform: translateX(-50%); } }
+.marquee-inner span {
+    font-size: 8px; letter-spacing: .22em; color: rgba(255,255,255,.2);
+    margin: 0 18px; text-transform: uppercase;
+}
+.marquee-inner span.accent { color: var(--accent); opacity: .6; }
