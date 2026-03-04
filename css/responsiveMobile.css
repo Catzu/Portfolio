@@ -1,10 +1,46 @@
 @media(max-width:480px){
-    /* Hero — stack text at bottom, car fills background */
-    #hero {
-    left: 16px; right: 16px; bottom: 60px;
-    max-width: calc(100vw - 32px);
-    padding: 0 0 0 16px;
+    /* Hero — full viewport, wave fills entire background */
+    #hero-section {
+        position: relative;
+        height: 100vh;
+        min-height: 100vh;
+        display: block;
+        overflow: visible;
     }
+
+    /* Wave canvas stays visible and fills the full hero as background */
+    #glCanvas { display: block !important; position: absolute; inset: 0; width: 100% !important; height: 100% !important; z-index: 0; }
+
+    /* Hide desktop car canvases — mobile has its own */
+    #carOverlay, #three-hidden, #car-loading, #load-overlay, #car-nameplate { display: none !important; }
+
+    /* Mobile 3D viewer — absolute, fills top ~60% of hero, transparent bg so wave shows through */
+    #mobile-car-wrap {
+        display: block !important;
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 62%;
+        background: transparent;
+        z-index: 3;
+    }
+
+    /* Dark gradient fade at bottom so text is readable over the wave */
+    #hero-section::after {
+        content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+        height: 55%; z-index: 2; pointer-events: none;
+        background: linear-gradient(to bottom, transparent 0%, rgba(0,17,34,0.85) 35%, #001122 65%);
+    }
+
+    /* Text hero block floats at the bottom of the hero */
+    #hero {
+        position: absolute;
+        left: 16px; right: 16px;
+        bottom: 24px; top: auto;
+        max-width: calc(100vw - 32px);
+        padding: 0 0 0 16px;
+        z-index: 10;
+    }
+
     h1.hero-h1 { font-size: clamp(1.6rem,8vw,2rem); letter-spacing: .08em; }
     p.desc { font-size: .7rem; margin-bottom: 14px; }
     .btn-row { flex-wrap: wrap; gap: 8px; }

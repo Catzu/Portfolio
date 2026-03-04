@@ -1,0 +1,87 @@
+/* ═══ PISTON LOAD OVERLAY ═══ */
+#load-overlay {
+    position: absolute; inset: 0; z-index: 20;
+    background: #001122;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 22px;
+    pointer-events: all;
+    opacity: 1;
+    transition: opacity .5s ease;
+}
+/* Edge-safe: only use opacity for the fade, JS sets display:none after */
+#load-overlay.gone {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.piston-loader-md { width: 80px; height: 110px; position: relative; }
+.piston-loader-md svg { width: 100%; height: 100%; overflow: visible; }
+
+.p-piston { animation: pistonUD   0.8s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+.p-rod    { animation: pistonUD   0.8s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+.p-crank  { animation: crankSpin  0.8s linear    infinite; }
+.p-spark  { animation: sparkFlash 0.8s ease-out  infinite; }
+.p-fire   { animation: fireFlash  0.8s ease-out  infinite; }
+
+@keyframes pistonUD {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(var(--stroke, 28px)); }
+    100% { transform: translateY(0); }
+}
+@keyframes crankSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes sparkFlash {
+    0%, 100% { opacity: 0; } 2% { opacity: 1; } 8% { opacity: 0; }
+}
+@keyframes fireFlash {
+    0%, 100% { opacity: 0; transform: scale(0.3); }
+    3%  { opacity: 1; transform: scale(1.1); }
+    15% { opacity: 0.4; transform: scale(0.9); }
+    25% { opacity: 0; }
+}
+
+.overlay-progress-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.overlay-progress-bar {
+    width: 120px; height: 1px; background: rgba(255,255,255,.1); position: relative; overflow: hidden;
+}
+.overlay-progress-fill {
+    position: absolute; left: 0; top: 0; height: 100%;
+    background: var(--accent); width: 0%; transition: width .2s ease;
+}
+.overlay-progress-text {
+    font-size: 7px; letter-spacing: .22em; color: rgba(255,255,255,.3);
+}
+
+/* ═══ MOBILE 3D VIEWER ═══ */
+#mobile-car-wrap {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 260px;
+    background: transparent;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+#mobileCarOverlay {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+#mobile-load-overlay {
+    position: absolute; inset: 0; z-index: 20;
+    background: #001122;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 22px;
+    pointer-events: all;
+    opacity: 1;
+    transition: opacity .5s ease;
+}
+#mobile-load-overlay.gone {
+    opacity: 0;
+    pointer-events: none;
+}

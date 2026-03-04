@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="css/marqueeStrips.css">
   <link rel="stylesheet" href="css/namePlate.css">
   <link rel="stylesheet" href="css/noise.css">
+  <link rel="stylesheet" href="css/pistonOverlay.css">
   <link rel="stylesheet" href="css/projects.css">
   <link rel="stylesheet" href="css/responsiveMobile.css">
   <link rel="stylesheet" href="css/responsiveTablet.css">
@@ -34,6 +35,163 @@
   <canvas id="carOverlay"></canvas>
   <canvas id="three-hidden"></canvas>
   <div id="car-loading">LOADING...</div>
+
+  <!-- ═══ PISTON LOAD OVERLAY ═══ -->
+  <div id="load-overlay">
+    <div class="piston-loader-md">
+      <svg viewBox="0 0 80 110" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wallM" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1e222a"/><stop offset="55%" stop-color="#3a4050"/><stop offset="100%" stop-color="#2a2e38"/>
+          </linearGradient>
+          <linearGradient id="pistonM" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#3a3e48"/><stop offset="30%" stop-color="#9aa0ac"/><stop offset="50%" stop-color="#c8cdd6"/><stop offset="70%" stop-color="#9aa0ac"/><stop offset="100%" stop-color="#3a3e48"/>
+          </linearGradient>
+          <radialGradient id="fireM"><stop offset="0%" stop-color="#fff"/><stop offset="25%" stop-color="#ffee88"/><stop offset="60%" stop-color="#ff6600" stop-opacity="0.7"/><stop offset="100%" stop-color="#ff2200" stop-opacity="0"/></radialGradient>
+          <radialGradient id="crankM" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#d0d5de"/><stop offset="100%" stop-color="#3a3e48"/></radialGradient>
+          <filter id="glowM" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.5" result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
+        </defs>
+        <rect x="0"  y="6"  width="13" height="64" fill="url(#wallM)"/>
+        <rect x="67" y="6"  width="13" height="64" fill="url(#wallM)" transform="scale(-1,1) translate(-80,0)"/>
+        <rect x="12" y="6"  width="2"  height="64" fill="#4a5060" opacity="0.6"/>
+        <rect x="66" y="6"  width="2"  height="64" fill="#4a5060" opacity="0.6"/>
+        <rect x="0"  y="0"  width="80" height="8" rx="2" fill="#252932" stroke="#3a4050" stroke-width="0.8"/>
+        <polygon points="40,0 44,2 44,7 40,9 36,7 36,2" fill="#9aa0aa" stroke="#7a8090" stroke-width="0.5"/>
+        <rect x="37" y="3" width="6" height="5" rx="1" fill="#e8eaf0"/>
+        <rect x="39" y="7" width="2" height="5" fill="#aab0bc"/>
+        <rect x="42" y="9" width="4" height="1.5" rx="0.5" fill="#aab0bc"/>
+        <rect x="45" y="7" width="1.5" height="3" rx="0.5" fill="#aab0bc"/>
+        <g class="p-piston" style="--stroke: 36px">
+          <rect x="13" y="18" width="54" height="22" rx="1.5" fill="url(#pistonM)"/>
+          <rect x="13" y="18" width="54" height="5"  rx="1.5" fill="#c8cdd6" opacity="0.5"/>
+          <rect x="10" y="20" width="4" height="5" rx="0.8" fill="#9aa0aa"/>
+          <rect x="66" y="20" width="4" height="5" rx="0.8" fill="#9aa0aa"/>
+          <rect x="10" y="28" width="4" height="4" rx="0.8" fill="#7a8090"/>
+          <rect x="66" y="28" width="4" height="4" rx="0.8" fill="#7a8090"/>
+          <rect x="10" y="33" width="4" height="2.5" rx="0.5" fill="#5a6070"/>
+          <rect x="66" y="33" width="4" height="2.5" rx="0.5" fill="#5a6070"/>
+          <rect x="24" y="37" width="32" height="5" rx="2.5" fill="#c0c5ce" stroke="#8a9098" stroke-width="0.5"/>
+          <rect x="16" y="30" width="8" height="9" rx="2" fill="#1a1e26" opacity="0.7"/>
+          <rect x="56" y="30" width="8" height="9" rx="2" fill="#1a1e26" opacity="0.7"/>
+          <ellipse cx="40" cy="40" rx="6" ry="4" fill="#4a5060" stroke="#7a8090" stroke-width="1"/>
+          <ellipse cx="40" cy="40" rx="3" ry="2" fill="#1a1e26"/>
+          <path d="M36,42 L34,72 M44,42 L46,72" stroke="#7a8090" stroke-width="5" stroke-linecap="round"/>
+          <path d="M37,44 L35,70 M43,44 L45,70" stroke="#4a5060" stroke-width="1.5"/>
+        </g>
+        <g class="p-rod" style="transform-origin: 40px 88px; --stroke: 18px">
+          <ellipse cx="40" cy="78" rx="11" ry="8" fill="#3a3e48" stroke="#6a7080" stroke-width="1.2"/>
+          <ellipse cx="40" cy="78" rx="6"  ry="4"  fill="#1a1e26"/>
+          <line x1="29" y1="80" x2="51" y2="80" stroke="#2a2e38" stroke-width="1.2"/>
+          <circle cx="31" cy="82" r="2" fill="#8a9098" stroke="#6a7080" stroke-width="0.5"/>
+          <circle cx="49" cy="82" r="2" fill="#8a9098" stroke="#6a7080" stroke-width="0.5"/>
+        </g>
+        <g style="transform-origin: 40px 90px" class="p-crank">
+          <circle cx="40" cy="90" r="14" fill="url(#crankM)" stroke="#5a6070" stroke-width="1"/>
+          <path d="M26,90 Q22,104 32,108 Q40,112 40,97 L40,90Z" fill="#5a6070"/>
+          <path d="M54,90 Q58,104 48,108 Q40,112 40,97 L40,90Z" fill="#5a6070"/>
+          <circle cx="51" cy="80" r="5.5" fill="#c0c5ce" stroke="#8a9098" stroke-width="0.8"/>
+          <circle cx="51" cy="80" r="2"   fill="#2a2e38"/>
+          <circle cx="40" cy="90" r="4" fill="#2a2e38" stroke="#5a6070" stroke-width="0.8"/>
+          <circle cx="40" cy="90" r="1.5" fill="#0a0c10"/>
+        </g>
+        <g class="p-spark" filter="url(#glowM)">
+          <path d="M40,9 L37,14 L41,16 L37,22" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <path d="M40,9 L37,14 L41,16 L37,22" stroke="#aaddff" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.35"/>
+          <circle cx="40" cy="13" r="3" fill="none" stroke="#88ccff" stroke-width="0.5" opacity="0.6"/>
+        </g>
+        <g class="p-fire" style="transform-origin: 40px 18px">
+          <ellipse cx="40" cy="14" rx="24" ry="11" fill="url(#fireM)" filter="url(#glowM)"/>
+          <ellipse cx="28" cy="18" rx="11" ry="7"  fill="#ff6600" opacity="0.35"/>
+          <ellipse cx="52" cy="18" rx="11" ry="7"  fill="#ff6600" opacity="0.35"/>
+        </g>
+      </svg>
+    </div>
+    <div class="overlay-progress-wrap">
+      <div class="overlay-progress-bar"><div class="overlay-progress-fill" id="overlayFill"></div></div>
+      <div class="overlay-progress-text" id="overlayPct">LOADING 0%</div>
+    </div>
+  </div>
+
+  <!-- ═══ MOBILE 3D VIEWER (≤480px only) ═══ -->
+  <div id="mobile-car-wrap">
+    <canvas id="mobileCarOverlay"></canvas>
+    <canvas id="mobile-three-hidden" style="display:none;"></canvas>
+    <div id="mobile-load-overlay">
+      <div class="piston-loader-md">
+        <svg viewBox="0 0 80 110" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="wallM2" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#1e222a"/><stop offset="55%" stop-color="#3a4050"/><stop offset="100%" stop-color="#2a2e38"/>
+            </linearGradient>
+            <linearGradient id="pistonM2" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#3a3e48"/><stop offset="30%" stop-color="#9aa0ac"/><stop offset="50%" stop-color="#c8cdd6"/><stop offset="70%" stop-color="#9aa0ac"/><stop offset="100%" stop-color="#3a3e48"/>
+            </linearGradient>
+            <radialGradient id="fireM2"><stop offset="0%" stop-color="#fff"/><stop offset="25%" stop-color="#ffee88"/><stop offset="60%" stop-color="#ff6600" stop-opacity="0.7"/><stop offset="100%" stop-color="#ff2200" stop-opacity="0"/></radialGradient>
+            <radialGradient id="crankM2" cx="35%" cy="30%" r="65%"><stop offset="0%" stop-color="#d0d5de"/><stop offset="100%" stop-color="#3a3e48"/></radialGradient>
+            <filter id="glowM2" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.5" result="b"/><feComposite in="SourceGraphic" in2="b" operator="over"/></filter>
+          </defs>
+          <rect x="0"  y="6"  width="13" height="64" fill="url(#wallM2)"/>
+          <rect x="67" y="6"  width="13" height="64" fill="url(#wallM2)" transform="scale(-1,1) translate(-80,0)"/>
+          <rect x="12" y="6"  width="2"  height="64" fill="#4a5060" opacity="0.6"/>
+          <rect x="66" y="6"  width="2"  height="64" fill="#4a5060" opacity="0.6"/>
+          <rect x="0"  y="0"  width="80" height="8" rx="2" fill="#252932" stroke="#3a4050" stroke-width="0.8"/>
+          <polygon points="40,0 44,2 44,7 40,9 36,7 36,2" fill="#9aa0aa" stroke="#7a8090" stroke-width="0.5"/>
+          <rect x="37" y="3" width="6" height="5" rx="1" fill="#e8eaf0"/>
+          <rect x="39" y="7" width="2" height="5" fill="#aab0bc"/>
+          <rect x="42" y="9" width="4" height="1.5" rx="0.5" fill="#aab0bc"/>
+          <rect x="45" y="7" width="1.5" height="3" rx="0.5" fill="#aab0bc"/>
+          <g class="p-piston" style="--stroke: 36px">
+            <rect x="13" y="18" width="54" height="22" rx="1.5" fill="url(#pistonM2)"/>
+            <rect x="13" y="18" width="54" height="5"  rx="1.5" fill="#c8cdd6" opacity="0.5"/>
+            <rect x="10" y="20" width="4" height="5" rx="0.8" fill="#9aa0aa"/>
+            <rect x="66" y="20" width="4" height="5" rx="0.8" fill="#9aa0aa"/>
+            <rect x="10" y="28" width="4" height="4" rx="0.8" fill="#7a8090"/>
+            <rect x="66" y="28" width="4" height="4" rx="0.8" fill="#7a8090"/>
+            <rect x="10" y="33" width="4" height="2.5" rx="0.5" fill="#5a6070"/>
+            <rect x="66" y="33" width="4" height="2.5" rx="0.5" fill="#5a6070"/>
+            <rect x="24" y="37" width="32" height="5" rx="2.5" fill="#c0c5ce" stroke="#8a9098" stroke-width="0.5"/>
+            <rect x="16" y="30" width="8" height="9" rx="2" fill="#1a1e26" opacity="0.7"/>
+            <rect x="56" y="30" width="8" height="9" rx="2" fill="#1a1e26" opacity="0.7"/>
+            <ellipse cx="40" cy="40" rx="6" ry="4" fill="#4a5060" stroke="#7a8090" stroke-width="1"/>
+            <ellipse cx="40" cy="40" rx="3" ry="2" fill="#1a1e26"/>
+            <path d="M36,42 L34,72 M44,42 L46,72" stroke="#7a8090" stroke-width="5" stroke-linecap="round"/>
+            <path d="M37,44 L35,70 M43,44 L45,70" stroke="#4a5060" stroke-width="1.5"/>
+          </g>
+          <g class="p-rod" style="transform-origin: 40px 88px; --stroke: 18px">
+            <ellipse cx="40" cy="78" rx="11" ry="8" fill="#3a3e48" stroke="#6a7080" stroke-width="1.2"/>
+            <ellipse cx="40" cy="78" rx="6"  ry="4"  fill="#1a1e26"/>
+            <line x1="29" y1="80" x2="51" y2="80" stroke="#2a2e38" stroke-width="1.2"/>
+            <circle cx="31" cy="82" r="2" fill="#8a9098" stroke="#6a7080" stroke-width="0.5"/>
+            <circle cx="49" cy="82" r="2" fill="#8a9098" stroke="#6a7080" stroke-width="0.5"/>
+          </g>
+          <g style="transform-origin: 40px 90px" class="p-crank">
+            <circle cx="40" cy="90" r="14" fill="url(#crankM2)" stroke="#5a6070" stroke-width="1"/>
+            <path d="M26,90 Q22,104 32,108 Q40,112 40,97 L40,90Z" fill="#5a6070"/>
+            <path d="M54,90 Q58,104 48,108 Q40,112 40,97 L40,90Z" fill="#5a6070"/>
+            <circle cx="51" cy="80" r="5.5" fill="#c0c5ce" stroke="#8a9098" stroke-width="0.8"/>
+            <circle cx="51" cy="80" r="2"   fill="#2a2e38"/>
+            <circle cx="40" cy="90" r="4" fill="#2a2e38" stroke="#5a6070" stroke-width="0.8"/>
+            <circle cx="40" cy="90" r="1.5" fill="#0a0c10"/>
+          </g>
+          <g class="p-spark" filter="url(#glowM2)">
+            <path d="M40,9 L37,14 L41,16 L37,22" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M40,9 L37,14 L41,16 L37,22" stroke="#aaddff" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.35"/>
+            <circle cx="40" cy="13" r="3" fill="none" stroke="#88ccff" stroke-width="0.5" opacity="0.6"/>
+          </g>
+          <g class="p-fire" style="transform-origin: 40px 18px">
+            <ellipse cx="40" cy="14" rx="24" ry="11" fill="url(#fireM2)" filter="url(#glowM2)"/>
+            <ellipse cx="28" cy="18" rx="11" ry="7"  fill="#ff6600" opacity="0.35"/>
+            <ellipse cx="52" cy="18" rx="11" ry="7"  fill="#ff6600" opacity="0.35"/>
+          </g>
+        </svg>
+      </div>
+      <div class="overlay-progress-wrap">
+        <div class="overlay-progress-bar"><div class="overlay-progress-fill" id="mobileOverlayFill"></div></div>
+        <div class="overlay-progress-text" id="mobileOverlayPct">LOADING 0%</div>
+      </div>
+    </div>
+  </div>
+  <!-- ═══ END MOBILE 3D VIEWER ═══ -->
 
   <div id="hero">
     <div class="rule-line">
@@ -421,13 +579,14 @@
 </div><!-- end #content -->
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js" crossorigin="anonymous"></script>
   <script src="js/heroscroll.js"></script>
   <script src="js/intersectionObserver.js"></script>
   <script src="js/triggerTypewriter.js"></script>
   <script src="js/marqueeStrips.js"></script>
   <script src="js/ditherAndCarRender.js"></script>
+  <script src="js/mobileCarViewer.js"></script>
   <script src="js/selectCar.js"></script>
   <script src="js/garageUI.js"></script>
   <script src="js/accentOnLoad.js"></script>

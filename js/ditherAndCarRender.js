@@ -25,7 +25,7 @@ cam.position.set(-0.6,-0.3,5);cam.lookAt(-0.6,-0.3,0);
 
 const renderer=new THREE.WebGLRenderer({canvas:threeCanvas,antialias:true,alpha:true,preserveDrawingBuffer:true});
 renderer.setClearColor(0,0);renderer.setPixelRatio(1);
-renderer.outputEncoding=THREE.sRGBEncoding;
+try{renderer.outputEncoding=THREE.sRGBEncoding;}catch(e){}
 renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.4;
 
 scene.add(new THREE.AmbientLight(0xffffff,0.15));
@@ -33,7 +33,7 @@ const kl=new THREE.DirectionalLight(0xffffff,4.5);kl.position.set(3,6,5);scene.a
 const fl=new THREE.DirectionalLight(0xffffff,0.8);fl.position.set(-4,2,2);scene.add(fl);
 const rl=new THREE.DirectionalLight(0xffffff,2.5);rl.position.set(0,3,-6);scene.add(rl);
 
-const rc=document.createElement('canvas'),rx=rc.getContext('2d');
+const rc=document.createElement('canvas'),rx=rc.getContext('2d',{willReadFrequently:true});
 
 function resizeThree(){
   const r=carRect();
@@ -54,41 +54,78 @@ function posLoad(){
 posLoad();
 window.addEventListener('resize',()=>{resizeOverlay();resizeThree();posLoad();});
 
+const lo=document.getElementById('load-overlay');
+const fill=document.getElementById('overlayFill');
+const pct=document.getElementById('overlayPct');
+
 let carModel=null,autoY=Math.PI*0.5,isLoading=false;
 let rX=0,rY=0;
+let overlayDismissed=false;
 
 function loadCar(fileId){
   if(isLoading)return;
   isLoading=true;
+  overlayDismissed=false;
   if(carModel){scene.remove(carModel);carModel=null;}
   loadEl.style.display='none';
+
+  if(lo){lo.style.cssText='';lo.classList.remove('gone');}
+  if(fill)fill.style.width='0%';
+  if(pct)pct.textContent='LOADING...';
 
   new THREE.GLTFLoader().load(
     CARS[fileId].file,
     gltf=>{
-      const m=gltf.scene;
-      const box=new THREE.Box3().setFromObject(m);
-      const ctr=box.getCenter(new THREE.Vector3()),sz=box.getSize(new THREE.Vector3());
-      const sc=3.2/Math.max(sz.x,sz.y,sz.z);
-      m.scale.setScalar(sc);m.position.copy(ctr.multiplyScalar(-sc));
-      m.position.y-=sz.y*sc*0.08;
-      m.traverse(c=>{if(c.isMesh){[].concat(c.material).forEach(mt=>{mt.roughness=0.15;mt.metalness=0.9;mt.envMapIntensity=0;});}});
-      scene.add(m);carModel=m;
+      try{
+        const m=gltf.scene;
+        const box=new THREE.Box3().setFromObject(m);
+        const ctr=box.getCenter(new THREE.Vector3()),sz=box.getSize(new THREE.Vector3());
+        const sc=3.2/Math.max(sz.x,sz.y,sz.z);
+        m.scale.setScalar(sc);m.position.copy(ctr.multiplyScalar(-sc));
+        m.position.y-=sz.y*sc*0.08;
+        m.traverse(c=>{if(c.isMesh){[].concat(c.material).forEach(mt=>{mt.roughness=0.15;mt.metalness=0.9;mt.envMapIntensity=0;});}});
+        scene.add(m);carModel=m;
+        autoY=Math.PI*0.5;rX=0;rY=0;
+        const np=document.getElementById('car-nameplate');
+        np.textContent=CARS[fileId].label;
+        np.classList.add('show');
+        setTimeout(()=>np.classList.remove('show'),2200);
+      }catch(err){
+        console.error('GLB processing error:',err);
+      }
       isLoading=false;
-      autoY=Math.PI*0.5;rX=0;rY=0;
-
-      const np=document.getElementById('car-nameplate');
-      np.textContent=CARS[fileId].label;
-      np.classList.add('show');
-      setTimeout(()=>np.classList.remove('show'),2200);
+      overlayDismissed=true;
+      if(fill)fill.style.width='100%';
+      if(pct)pct.textContent='LOADING 100%';
+      setTimeout(()=>{
+        if(lo){ lo.classList.add('gone'); setTimeout(()=>{ lo.style.display='none'; },520); }
+      },300);
     },
-    xhr=>{if(xhr.total)loadEl.textContent=`LOADING ${Math.round(xhr.loaded/xhr.total*100)}%`;},
-    e=>{console.error(e);loadEl.textContent='ERROR';isLoading=false;
+    xhr=>{
+      if(xhr.total>0){
+        const p=Math.round(xhr.loaded/xhr.total*100);
+        if(fill)fill.style.width=p+'%';
+        if(pct)pct.textContent='LOADING '+p+'%';
+      }
+    },
+    e=>{
+      console.error(e);
+      isLoading=false;
+      if(lo){ lo.classList.add('gone'); setTimeout(()=>{ lo.style.display='none'; }, 520); }
     }
   );
 }
 
 loadCar(activeCarIdx);
+
+// Safety: force-dismiss overlay after 12s in case GLB stalls (e.g. Edge + CDN issues)
+setTimeout(()=>{
+  if(!overlayDismissed && lo){
+    overlayDismissed=true;
+    lo.classList.add('gone');
+    setTimeout(()=>{ lo.style.display='none'; }, 520);
+  }
+}, 12000);
 
 let drag=false,lmx=0,lmy=0,vx=0,vy=0;
 const CAM_Z=6;
@@ -157,6 +194,7 @@ function drawCar(){
 
 (function loop(){
   requestAnimationFrame(loop);
+  // Dismiss overlay from within render loop — Edge-safe, no callback timing issues
   if(!carModel)return;
   if(!drag){vx*=0.88;vy*=0.88;rY+=vx*0.004;rX=Math.max(-0.5,Math.min(0.5,rX+vy*0.003));}
   autoY-=0.006;
