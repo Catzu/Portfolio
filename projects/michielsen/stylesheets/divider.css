@@ -1,5 +1,0 @@
-.divider-accent {
-  height: 3px;
-  background: linear-gradient(90deg, transparent 0%, var(--accent) 20%, var(--accent) 80%, transparent 100%);
-  opacity: .5;
-}

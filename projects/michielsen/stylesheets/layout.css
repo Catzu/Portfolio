@@ -1,4 +1,0 @@
-.wrap { max-width: 1320px; margin: 0 auto; padding: 0 72px; }
-@media(max-width:900px) { .wrap { padding: 0 24px; } }
-.section { padding: 120px 0; }
-.section-sm { padding: 80px 0; }
