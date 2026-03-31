@@ -1,0 +1,36 @@
+.team-full { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.team-full-card {
+  background: var(--surf); border: 1px solid var(--border);
+  border-radius: 12px; padding: 36px; display: flex; gap: 24px;
+  transition: border-color .25s;
+}
+.team-full-card:hover { border-color: var(--accent); }
+.team-full-avatar {
+  width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+  background: var(--accm); border: 2px solid rgba(233,60,70,.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-head); font-weight: 800; font-size: 26px; color: var(--accent);
+}
+.team-full-name { font-family: var(--ff-head); font-weight: 800; font-size: 22px; text-transform: uppercase; color: var(--white); margin-bottom: 4px; }
+.team-full-role { font-family: var(--ff-head); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+.team-full-bio { font-size: 14px; line-height: 1.7; color: var(--muted); }
+.certifications { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cert-card {
+  background: var(--surf); border: 1px solid var(--border);
+  border-radius: 12px; padding: 32px 24px; text-align: center;
+  transition: all .25s;
+}
+.cert-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.cert-icon { font-size: 40px; margin-bottom: 16px; }
+.cert-name { font-family: var(--ff-head); font-weight: 700; font-size: 18px; text-transform: uppercase; color: var(--white); margin-bottom: 8px; }
+.cert-desc { font-size: 13px; line-height: 1.65; color: var(--muted); }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.value-card {
+  background: var(--surf); border: 1px solid var(--border);
+  border-radius: 12px; padding: 32px;
+  transition: all .25s;
+}
+.value-card:hover { border-color: var(--accent); }
+.value-icon { font-size: 32px; margin-bottom: 16px; }
+.value-title { font-family: var(--ff-head); font-weight: 700; font-size: 18px; text-transform: uppercase; color: var(--white); margin-bottom: 8px; }
+.value-desc { font-size: 14px; line-height: 1.65; color: var(--muted); }

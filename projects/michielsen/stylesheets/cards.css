@@ -1,0 +1,11 @@
+.card {
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all .25s;
+}
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(233,60,70,.25), 0 16px 48px rgba(0,0,0,.5);
+  transform: translateY(-3px);
+}

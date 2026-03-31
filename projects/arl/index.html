@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARL Lelystad | Premium Autoreparatie</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-tertiary-fixed-variant": "#6f3800",
+          "inverse-primary": "#bbc6e2",
+          "primary": "#051125",
+          "inverse-surface": "#2f3131",
+          "secondary-fixed": "#d7e2ff",
+          "surface-container-high": "#e8e8e8",
+          "on-surface": "#1a1c1c",
+          "primary-container": "#1b263b",
+          "on-error": "#ffffff",
+          "error-container": "#ffdad6",
+          "inverse-on-surface": "#f0f1f1",
+          "on-tertiary": "#ffffff",
+          "secondary-container": "#cbdafd",
+          "secondary": "#505f7c",
+          "tertiary": "#200c00",
+          "surface-variant": "#e2e2e2",
+          "tertiary-fixed-dim": "#ffb780",
+          "primary-fixed": "#d7e2ff",
+          "surface-container-lowest": "#ffffff",
+          "background": "#f9f9f9",
+          "surface": "#f9f9f9",
+          "outline-variant": "#c5c6cd",
+          "tertiary-fixed": "#ffdcc4",
+          "on-error-container": "#93000a",
+          "secondary-fixed-dim": "#b7c7e9",
+          "on-primary": "#ffffff",
+          "on-tertiary-fixed": "#2f1400",
+          "surface-container-highest": "#e2e2e2",
+          "outline": "#75777d",
+          "on-background": "#1a1c1c",
+          "primary-fixed-dim": "#bbc6e2",
+          "surface-bright": "#f9f9f9",
+          "on-primary-container": "#828da7",
+          "on-primary-fixed-variant": "#3c475d",
+          "on-secondary-container": "#505f7d",
+          "surface-container": "#eeeeee",
+          "tertiary-container": "#3f1d00",
+          "error": "#ba1a1a",
+          "on-tertiary-container": "#c67c3e",
+          "surface-tint": "#545e76",
+          "on-secondary": "#ffffff",
+          "surface-dim": "#dadada",
+          "surface-container-low": "#f3f3f4",
+          "on-primary-fixed": "#101b30",
+          "on-secondary-fixed-variant": "#384763",
+          "on-surface-variant": "#45474d",
+          "on-secondary-fixed": "#0b1b36"
+        },
+        fontFamily: {
+          "headline": ["Manrope"],
+          "body": ["Inter"],
+          "label": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        animation: {
+          'shine': 'shine 3s infinite linear',
+          'reveal-up': 'reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          'pulse-glow': 'pulse-glow 3s infinite ease-in-out',
+          'marquee': 'marquee 120s linear infinite',
+        },
+        keyframes: {
+          shine: { '0%': { transform: 'translateX(-100%)' }, '100%': { transform: 'translateX(200%)' } },
+          'reveal-up': { '0%': { transform: 'translateY(100%)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+          'pulse-glow': { '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 183, 128, 0)' }, '50%': { boxShadow: '0 0 25px 8px rgba(255, 183, 128, 0.4)' } },
+          marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } }
+        }
+      },
+    },
+  }
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; overflow-x: hidden; background-color: #051125; }
+  #app-wrapper { overflow-x: hidden; position: relative; background-color: #051125; }
+
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+  .glass-effect {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  #main-nav { transition: all 1.2s cubic-bezier(0.4,0,0.2,1); width:100%; left:0; right:0; margin-left:auto; margin-right:auto; }
+  .nav-scrolled { width:90%!important; max-width:1100px; transform:translateY(20px); border-radius:1rem!important; background:#051125!important; backdrop-filter:none!important; -webkit-backdrop-filter:none!important; border:none!important; box-shadow:0 25px 50px -12px rgba(0,0,0,0.5); }
+  .nav-scrolled #nav-container { padding-left:2rem!important; padding-right:2rem!important; }
+  #nav-container { transition: all 1.2s cubic-bezier(0.4,0,0.2,1); }
+
+  .word-reveal { display:inline-block; overflow:hidden; vertical-align:bottom; }
+  .word-reveal span { display:inline-block; animation:reveal-up 0.8s cubic-bezier(0.16,1,0.3,1) forwards; opacity:0; }
+
+  .spotlight-parent:hover .spotlight-child:not(:hover) { filter:blur(1px) grayscale(0.5); opacity:0.7; transform:scale(0.95); }
+  .spotlight-child { transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
+  .spotlight-child:hover { transform:scale(1.05); z-index:10; box-shadow:0 0 40px rgba(255,183,128,0.2); }
+
+  .shimmer-btn { position:relative; overflow:hidden; }
+  .shimmer-btn::after { content:""; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:linear-gradient(45deg,transparent,rgba(255,255,255,0.3),transparent); transform:rotate(45deg); animation:shine 4s infinite; }
+
+  .reveal { opacity:0; transform:translateY(40px); transition:all 0.9s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.active { opacity:1; transform:translateY(0); }
+
+  #hero-video-bg { position:absolute; top:0; left:0; width:100%; height:100.5%; object-fit:cover; }
+  .h-screen-fix { height:100vh; height:100dvh; }
+
+  /* Mobile menu */
+  #mobile-menu { transform:translateY(-110%); transition:transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+  #mobile-menu.open { transform:translateY(0); }
+
+  /* Marquee pause */
+  .marquee-paused .marquee-track { animation-play-state:paused!important; }
+  .marquee-container:hover .marquee-track { animation-play-state:paused; }
+
+  /* Form success state */
+  #form-success { display:none; }
+  #form-success.show { display:flex; }
+
+  /* Pricing pills */
+  .price-badge { background:rgba(255,183,128,0.12); border:1px solid rgba(255,183,128,0.25); }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .word-reveal span, .animate-reveal-up, .animate-pulse-glow, .shimmer-btn::after { animation:none!important; opacity:1!important; }
+    #hero-video-bg { display:none; }
+    #hero-static-bg { display:block!important; }
+    .reveal { opacity:1; transform:none; transition:none; }
+  }
+</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-tertiary-fixed-dim selection:text-tertiary scroll-smooth">
+<div id="app-wrapper">
+
+<!-- ── NAV ── -->
+<nav class="fixed top-0 z-50 bg-transparent transition-all h-20 flex items-center" id="main-nav">
+  <div class="flex justify-between items-center w-full px-6 md:px-12 max-w-7xl mx-auto transition-all" id="nav-container">
+    <div class="flex items-center gap-3 group shrink-0">
+      <img alt="ARL Logo" class="w-auto object-contain transition-transform group-hover:scale-105 h-12" style="mix-blend-mode:screen" src="https://lh3.googleusercontent.com/aida/ADBb0ujUwHTjmoJoVSAknJXE1jKM1HKgYpVWWmDAg-eRb558AJlCCzgi9lxSEBBKl-WgehiTrt0QS245HjniJXkyoKUHS84H3uZvjAbZDjyMqkFGVBSX0vvla9lAJaiOeaYwlgSm4D5-PGzgkXHTf9bFniJY4y4M8TYG4VfPyVSjx787aFoNhz2_XNg1sjcKpxEvWBxZy7Px8AZ49MZILcEK3pUsBtXHPE68X7W5cYDWKTyfT4gTlrt81sjOLBhLvA6RFccjqHIJ_kaP7Kg"/>
+      <div class="flex flex-col">
+        <span class="text-lg font-black text-white leading-none tracking-tighter">ARL Lelystad</span>
+        <span class="text-[8px] font-bold uppercase tracking-widest text-tertiary-fixed-dim opacity-70">Foundation</span>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center space-x-10 font-headline font-bold tracking-tight text-white">
+      <a class="nav-link text-tertiary-fixed-dim relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-tertiary-fixed-dim transition-all" href="#home">Home</a>
+      <a class="nav-link hover:text-tertiary-fixed-dim transition-all" href="#diensten">Diensten</a>
+      <a class="nav-link hover:text-tertiary-fixed-dim transition-all" href="#over-ons">Over ons</a>
+      <a class="nav-link hover:text-tertiary-fixed-dim transition-all" href="#contact">Contact</a>
+    </div>
+    <div class="flex items-center gap-4 shrink-0">
+      <a class="hidden sm:flex items-center gap-2 bg-white text-primary text-xs font-bold px-5 py-2.5 rounded-full hover:bg-tertiary-fixed-dim transition-all active:scale-95 shadow-lg" href="tel:0630443004">
+        <span class="material-symbols-outlined text-sm">phone</span>
+        <span>06-30443004</span>
+      </a>
+      <button class="md:hidden text-white" id="menu-toggle" aria-label="Menu openen">
+        <span class="material-symbols-outlined text-3xl" id="menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div id="mobile-menu" class="fixed top-0 left-0 right-0 z-40 bg-primary/95 backdrop-blur-xl pt-24 pb-10 px-8 shadow-2xl">
+  <div class="flex flex-col gap-6 font-headline font-bold text-2xl text-white">
+    <a class="hover:text-tertiary-fixed-dim transition-all py-2 border-b border-white/10" href="#home" onclick="closeMobileMenu()">Home</a>
+    <a class="hover:text-tertiary-fixed-dim transition-all py-2 border-b border-white/10" href="#diensten" onclick="closeMobileMenu()">Diensten</a>
+    <a class="hover:text-tertiary-fixed-dim transition-all py-2 border-b border-white/10" href="#over-ons" onclick="closeMobileMenu()">Over ons</a>
+    <a class="hover:text-tertiary-fixed-dim transition-all py-2 border-b border-white/10" href="#contact" onclick="closeMobileMenu()">Contact</a>
+    <a class="mt-4 h-16 inline-flex items-center justify-center gap-3 bg-tertiary-fixed-dim text-tertiary font-extrabold text-lg rounded-2xl" href="tel:0630443004">
+      <span class="material-symbols-outlined">phone</span> 06-30443004
+    </a>
+  </div>
+</div>
+
+<main>
+
+<!-- ── HERO ── -->
+<section class="relative h-screen-fix w-full flex items-center justify-center overflow-hidden bg-primary p-0 m-0 z-10" id="home">
+  <div class="absolute inset-0 z-0 h-full w-full overflow-hidden">
+    <!-- Fallback static image for reduced motion / slow connections -->
+    <div id="hero-static-bg" class="hidden absolute inset-0 bg-cover bg-center" style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuALEzlU_vW-oKurpwmFBlAvTDCKfyMjPJyLRihlZLC8CaB9fUpja8WZm1VJbpU7GCa0NCzbzqXu11NuRwfDw1ejH39LmMh21YXIecDZAoMPIVXwMvx_mcjL8OncNw5Spko5YJk_KXLp7sBYge2jLn3XoDYQnygnNIbgSTUftfZAT3y8Olg9wg6l66nLnNfjBrKd6dILjqVLMXb7ZJvYVROwPHpe-uN86Fm8OwnHc4PJm4151OrFmBKwLQIqzIAF2RX_1Y9Sh2aHNrYC'); opacity:.4"></div>
+    <video autoplay class="opacity-40 w-full h-full object-cover" id="hero-video-bg" loop muted playsinline
+      poster="https://lh3.googleusercontent.com/aida-public/AB6AXuALEzlU_vW-oKurpwmFBlAvTDCKfyMjPJyLRihlZLC8CaB9fUpja8WZm1VJbpU7GCa0NCzbzqXu11NuRwfDw1ejH39LmMh21YXIecDZAoMPIVXwMvx_mcjL8OncNw5Spko5YJk_KXLp7sBYge2jLn3XoDYQnygnNIbgSTUftfZAT3y8Olg9wg6l66nLnNfjBrKd6dILjqVLMXb7ZJvYVROwPHpe-uN86Fm8OwnHc4PJm4151OrFmBKwLQIqzIAF2RX_1Y9Sh2aHNrYC">
+      <source src="https://joy1.videvo.net/videvo_files/video/free/2015-08/large_watermarked/Automobile_Repair_Preview.mp4" type="video/mp4"/>
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent"></div>
+  </div>
+
+  <div class="container mx-auto px-6 md:px-12 relative z-10 w-full">
+    <div class="max-w-4xl" id="hero-content">
+      <div class="inline-flex items-center gap-2 glass-effect text-tertiary-fixed-dim px-5 py-2 rounded-full mb-8 shadow-2xl opacity-0 animate-reveal-up">
+        <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">stars</span>
+        <span class="text-xs font-extrabold uppercase tracking-[0.3em]">Non-profit Stichting • Sinds 2015</span>
+      </div>
+      <h1 class="font-headline text-5xl md:text-7xl lg:text-9xl font-extrabold text-white leading-[1.1] tracking-tighter mb-8">
+        <span class="word-reveal"><span style="animation-delay:0.1s">Betaalbare</span></span>
+        <span class="word-reveal"><span style="animation-delay:0.2s">autoreparatie</span></span><br/>
+        <span class="word-reveal text-tertiary-fixed-dim"><span style="animation-delay:0.4s">voor iedereen.</span></span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 font-medium mb-12 max-w-2xl leading-relaxed opacity-0 animate-reveal-up [animation-delay:0.8s]">
+        Wij maken mobiliteit toegankelijk voor 60-plussers en mensen met een kleine beurs — in het hart van Lelystad.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-6 opacity-0 animate-reveal-up [animation-delay:1s]">
+        <a class="h-16 px-10 inline-flex items-center justify-center bg-tertiary-fixed-dim text-tertiary font-extrabold text-lg rounded-2xl hover:bg-white transition-all active:scale-95 shadow-2xl shadow-tertiary/40 shimmer-btn animate-pulse-glow" href="#contact">
+          Maak een afspraak
+        </a>
+        <a class="h-16 px-10 inline-flex items-center justify-center glass-effect text-white font-extrabold text-lg rounded-2xl hover:bg-white/10 transition-all hover:border-white/40" href="tel:0630443004">
+          <span class="material-symbols-outlined mr-2">phone_in_talk</span>
+          06-30443004
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── DIENSTEN ── -->
+<section class="py-32 bg-white reveal relative z-20" id="diensten">
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="mb-20 text-center">
+      <span class="text-label font-bold text-tertiary-fixed-dim uppercase tracking-[0.3em] mb-4 block">Onze Expertise</span>
+      <h2 class="font-headline text-4xl md:text-6xl font-extrabold text-primary mb-8 tracking-tight">Wat wij doen</h2>
+      <div class="w-24 h-1.5 bg-tertiary-fixed-dim mx-auto rounded-full mb-8"></div>
+      <p class="text-secondary max-w-3xl mx-auto text-xl leading-relaxed">
+        Alle werkzaamheden worden uitgevoerd met uiterste zorg. Wij werken met eigen onderdelen, maar ook met door u meegebrachte onderdelen.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 spotlight-parent">
+      <div class="spotlight-child bg-surface-container-low p-10 rounded-[2.5rem] border border-black/[0.03] group hover:-translate-y-3">
+        <div class="w-16 h-16 rounded-2xl bg-white mb-8 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+          <span class="material-symbols-outlined text-3xl">build</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 text-primary">Auto &amp; motor</h3>
+        <p class="text-secondary leading-relaxed mb-6 text-lg">Regulier onderhoud voor alle merken en modellen, zowel auto's als motoren.</p>
+        <div class="h-1 w-0 group-hover:w-full bg-tertiary-fixed-dim transition-all duration-500 rounded-full"></div>
+      </div>
+      <div class="spotlight-child bg-surface-container-low p-10 rounded-[2.5rem] border border-black/[0.03] group hover:-translate-y-3">
+        <div class="w-16 h-16 rounded-2xl bg-white mb-8 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+          <span class="material-symbols-outlined text-3xl">tire_repair</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 text-primary">Bandenwissel</h3>
+        <p class="text-secondary leading-relaxed mb-6 text-lg">Seizoenswissel, balanceren en montage van nieuwe of gebruikte banden.</p>
+        <div class="h-1 w-0 group-hover:w-full bg-tertiary-fixed-dim transition-all duration-500 rounded-full"></div>
+      </div>
+      <div class="spotlight-child bg-surface-container-low p-10 rounded-[2.5rem] border border-black/[0.03] group hover:-translate-y-3">
+        <div class="w-16 h-16 rounded-2xl bg-white mb-8 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+          <span class="material-symbols-outlined text-3xl">fact_check</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 text-primary">APK &amp; laswerk</h3>
+        <p class="text-secondary leading-relaxed mb-6 text-lg">Grondige APK-voorbereiding en vakkundig laswerk voor chassis en carrosserie.</p>
+        <div class="h-1 w-0 group-hover:w-full bg-tertiary-fixed-dim transition-all duration-500 rounded-full"></div>
+      </div>
+    </div>
+    <!-- Extra diensten rij — full cards matching top row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 spotlight-parent">
+      <div class="spotlight-child bg-surface-container-low p-10 rounded-[2.5rem] border border-black/[0.03] group hover:-translate-y-3">
+        <div class="w-16 h-16 rounded-2xl bg-white mb-8 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+          <span class="material-symbols-outlined text-3xl">electric_bike</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 text-primary">E-bike &amp; scooter</h3>
+        <p class="text-secondary leading-relaxed mb-6 text-lg">Onderhoud en reparatie van elektrische fietsen, scooters en lichte voertuigen.</p>
+        <div class="h-1 w-0 group-hover:w-full bg-tertiary-fixed-dim transition-all duration-500 rounded-full"></div>
+      </div>
+      <div class="spotlight-child bg-surface-container-low p-10 rounded-[2.5rem] border border-black/[0.03] group hover:-translate-y-3">
+        <div class="w-16 h-16 rounded-2xl bg-white mb-8 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+          <span class="material-symbols-outlined text-3xl">accessible</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 text-primary">Rollator &amp; hulpmiddelen</h3>
+        <p class="text-secondary leading-relaxed mb-6 text-lg">Reparatie en afstelling van rollators en andere mobiliteitshulpmiddelen.</p>
+        <div class="h-1 w-0 group-hover:w-full bg-tertiary-fixed-dim transition-all duration-500 rounded-full"></div>
+      </div>
+      <div class="spotlight-child bg-surface-container-low p-10 rounded-[2.5rem] border border-black/[0.03] group hover:-translate-y-3">
+        <div class="w-16 h-16 rounded-2xl bg-white mb-8 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+          <span class="material-symbols-outlined text-3xl">settings_suggest</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 text-primary">Zelf repareren</h3>
+        <p class="text-secondary leading-relaxed mb-6 text-lg">Repareer uw voertuig zelf onder begeleiding van onze vrijwilligers in onze werkplaats.</p>
+        <div class="h-1 w-0 group-hover:w-full bg-tertiary-fixed-dim transition-all duration-500 rounded-full"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OVER ONS ── -->
+<section class="py-32 bg-surface overflow-hidden reveal" id="over-ons">
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div class="relative">
+        <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
+          <img alt="Mechanic working at ARL Lelystad" class="w-full aspect-[4/5] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi_o5lO_bAAfcE4HZ2htcFIAS_OKkSZtMRExW_PJhqFMQviQMQcw6a9qMAhLHJxZgbdBFWpHE2yRqNZdE_t0WobOx6EY-ejWhgooa02D97tsILDMR88BeZVAvuQI2zAkR-roCb8QoCKcXM42oza4BQ505Ku8cKrZhEYythnQxvfpjFDPO8rQWwxn1JhGviuKLzXMlVNArgDT_z3CEK5powJVU0C_DkxhGAtKi_IocarDjN1PEEVmGYg8NU7by6YN8Hdsd4lq1mTOsi"/>
+        </div>
+        <!-- Stat cards -->
+        <div class="absolute -bottom-10 -right-10 bg-white p-8 rounded-3xl shadow-2xl border border-black/5 z-20 hidden md:block">
+          <div class="text-5xl font-black text-primary mb-1">68+</div>
+          <div class="text-secondary font-bold text-xs uppercase tracking-widest">Tevreden Klanten</div>
+        </div>
+        <div class="absolute -top-6 -left-6 bg-primary p-6 rounded-3xl shadow-2xl z-20 hidden md:block">
+          <div class="text-3xl font-black text-tertiary-fixed-dim mb-1">10+</div>
+          <div class="text-white/60 font-bold text-xs uppercase tracking-widest">Jaar ervaring</div>
+        </div>
+      </div>
+      <div>
+        <span class="text-label font-bold text-tertiary-fixed-dim uppercase tracking-[0.3em] mb-4 block">Onze Missie</span>
+        <h2 class="font-headline text-4xl md:text-6xl font-extrabold text-primary mb-10 tracking-tight leading-[1.1]">Sociale mobiliteit voor iedereen</h2>
+        <div class="space-y-8 text-xl text-secondary leading-relaxed">
+          <p>ARL is meer dan een garage; wij zijn een stichting gerund door gedreven vrijwilligers met een passie voor techniek en de medemens.</p>
+          <div class="flex items-start gap-6 bg-white p-8 rounded-3xl border-l-4 border-tertiary-fixed-dim shadow-sm">
+            <img alt="ARL Icon" class="w-16 h-16 object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/ADBb0ujUwHTjmoJoVSAknJXE1jKM1HKgYpVWWmDAg-eRb558AJlCCzgi9lxSEBBKl-WgehiTrt0QS245HjniJXkyoKUHS84H3uZvjAbZDjyMqkFGVBSX0vvla9lAJaiOeaYwlgSm4D5-PGzgkXHTf9bFniJY4y4M8TYG4VfPyVSjx787aFoNhz2_XNg1sjcKpxEvWBxZy7Px8AZ49MZILcEK3pUsBtXHPE68X7W5cYDWKTyfT4gTlrt81sjOLBhLvA6RFccjqHIJ_kaP7Kg" style="mix-blend-mode:multiply"/>
+            <p class="italic text-primary font-medium text-lg">"Onze focus ligt niet op winst, maar op het ondersteunen van 60-plussers en minima om veilig mobiel te blijven."</p>
+          </div>
+        </div>
+
+        <div class="mt-10 flex items-center gap-10">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" style="height:5rem;width:auto;flex-shrink:0;" aria-label="Gecertificeerd badge">
+            <rect x="0" y="0" width="100" height="80" rx="14" fill="#051125" stroke="#ffb780" stroke-width="1"/>
+            <circle cx="50" cy="28" r="16" fill="none" stroke="#ffb780" stroke-width="1"/>
+            <polyline points="42,28 48,35 59,20" fill="none" stroke="#ffb780" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="16" y1="52" x2="84" y2="52" stroke="#ffb780" stroke-width="0.5" opacity="0.2"/>
+            <text x="50" y="66" style="font-family:Inter,sans-serif;font-size:8px;font-weight:700;fill:#ffb780;letter-spacing:1px" text-anchor="middle">VERIFIED</text>
+          </svg>
+          <div class="flex flex-col">
+            <span class="text-primary font-bold text-xl">Officieel Geregistreerd</span>
+            <span class="text-secondary text-sm uppercase tracking-widest font-bold">Non-profit Stichting · KvK 63684071</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ERVARINGEN ── -->
+<section class="py-32 bg-white overflow-hidden" id="ervaringen">
+  <div class="container mx-auto px-6 md:px-12 mb-16">
+    <div class="text-center">
+        <h2 class="font-headline text-4xl md:text-7xl font-extrabold text-primary mb-6 tracking-tight">Ervaringen</h2>
+        <p class="text-secondary text-2xl font-medium">Wat onze gemeenschap over ons zegt</p>
+    </div>
+  </div>
+  <div class="marquee-container relative w-full overflow-hidden" id="marquee-container">
+    <div class="marquee-track flex w-max animate-marquee gap-8 py-8" id="reviews-marquee"></div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="py-32 bg-surface-container-low reveal" id="contact">
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <!-- Left col: info + map -->
+      <div>
+        <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-primary mb-12 tracking-tight">Vraag een offerte aan</h2>
+        <div class="space-y-10 mb-16">
+          <div class="flex gap-8 group">
+            <div class="w-16 h-16 rounded-3xl bg-white flex items-center justify-center text-primary shrink-0 shadow-lg group-hover:bg-primary group-hover:text-white transition-all duration-500">
+              <span class="material-symbols-outlined text-2xl">location_on</span>
+            </div>
+            <div>
+              <span class="block text-secondary text-xs font-bold uppercase tracking-widest mb-2">Bezoek ons</span>
+              <p class="text-2xl font-bold text-primary leading-snug">Spuiweg 6813<br/>8243 PW Lelystad</p>
+            </div>
+          </div>
+          <div class="flex gap-8 group">
+            <div class="w-16 h-16 rounded-3xl bg-white flex items-center justify-center text-primary shrink-0 shadow-lg group-hover:bg-primary group-hover:text-white transition-all duration-500">
+              <span class="material-symbols-outlined text-2xl">phone</span>
+            </div>
+            <div>
+              <span class="block text-secondary text-xs font-bold uppercase tracking-widest mb-2">Direct bellen</span>
+              <a href="tel:0630443004" class="text-2xl font-bold text-primary hover:text-tertiary-fixed-dim transition-colors">06-30443004</a>
+            </div>
+          </div>
+          <div class="flex gap-8 group">
+            <div class="w-16 h-16 rounded-3xl bg-white flex items-center justify-center text-primary shrink-0 shadow-lg group-hover:bg-primary group-hover:text-white transition-all duration-500">
+              <span class="material-symbols-outlined text-2xl">schedule</span>
+            </div>
+            <div>
+              <span class="block text-secondary text-xs font-bold uppercase tracking-widest mb-2">Openingstijden</span>
+              <p class="text-xl font-bold text-primary">Maandag – Zaterdag<br/><span class="text-secondary font-medium">09:00 – 16:00</span></p>
+            </div>
+          </div>
+        </div>
+        <!-- Interactive Google Maps embed — replaces static image -->
+        <div class="rounded-[3rem] overflow-hidden h-[380px] shadow-2xl border border-black/5">
+          <iframe
+            title="ARL Lelystad locatie op Google Maps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2446.2890870408787!2d5.4823!3d52.5086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5e0c4b1234567%3A0x0!2sSpuiweg+6813%2C+8243+PW+Lelystad!5e0!3m2!1snl!2snl!4v1700000000000!5m2!1snl!2snl"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Right col: form -->
+      <div class="bg-white p-10 md:p-12 rounded-[4rem] shadow-2xl border border-black/[0.02] relative">
+        <!-- Success state — hidden until submit -->
+        <div id="form-success" class="hidden absolute inset-0 rounded-[4rem] bg-white flex-col items-center justify-center gap-6 z-10 p-12 text-center">
+          <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center">
+            <span class="material-symbols-outlined text-5xl text-green-600" style="font-variation-settings:'FILL' 1;">check_circle</span>
+          </div>
+          <h3 class="font-headline text-3xl font-extrabold text-primary">Aanvraag verstuurd!</h3>
+          <p class="text-secondary text-lg leading-relaxed">Wij nemen zo snel mogelijk contact met u op, uiterlijk binnen 1 werkdag.</p>
+          <button onclick="resetForm()" class="mt-4 h-14 px-10 bg-primary text-white font-bold rounded-2xl hover:bg-primary-container transition-all">
+            Nieuwe aanvraag
+          </button>
+        </div>
+
+        <form id="contact-form" class="space-y-6" novalidate onsubmit="handleSubmit(event)">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-primary" for="f-naam">Naam</label>
+              <input id="f-naam" class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-tertiary-fixed-dim rounded-2xl h-14 px-5 text-sm" placeholder="Jan de Vries" type="text" autocomplete="name"/>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-primary" for="f-tel">Telefoon</label>
+              <input id="f-tel" class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-tertiary-fixed-dim rounded-2xl h-14 px-5 text-sm" placeholder="06 12345678" type="tel" autocomplete="tel"/>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-primary" for="f-email">E-mail</label>
+              <input id="f-email" class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-tertiary-fixed-dim rounded-2xl h-14 px-5 text-sm" placeholder="jan@voorbeeld.nl" type="email" autocomplete="email"/>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-primary" for="f-kenteken">Kenteken</label>
+              <input id="f-kenteken" class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-tertiary-fixed-dim rounded-2xl h-14 px-5 text-sm uppercase" placeholder="AA-123-B" type="text" maxlength="9"/>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <!-- Fixed: type="date" native date picker -->
+              <label class="block text-sm font-bold text-primary" for="f-datum">Datum voorkeur</label>
+              <input id="f-datum" class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-tertiary-fixed-dim rounded-2xl h-14 px-5 text-sm" type="date"/>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-primary" for="f-tijd">Tijdstip voorkeur</label>
+              <select id="f-tijd" class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-tertiary-fixed-dim rounded-2xl h-14 px-5 text-sm appearance-none">
+                <option>09:00 – 10:00</option>
+                <option>10:00 – 11:00</option>
+                <option>11:00 – 12:00</option>
+                <option>12:00 – 13:00</option>
+                <option>13:00 – 14:00</option>
+                <option>14:00 – 15:00</option>
+                <option>15:00 – 16:00</option>
+              </select>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="block text-sm font-bold text-primary" for="f-dienst">
+              Dienst
+              <span class="font-normal text-secondary ml-1">(auto, motor, scooter, rollator, fiets)</span>
+            </label>
+            <select id="f-dienst" class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-tertiary-fixed-dim rounded-2xl h-14 px-5 text-sm appearance-none">
+              <option>Reparatie / Laswerk</option>
+              <option>Zelf reparatie (begeleiding)</option>
+              <option>APK voorbereiding</option>
+              <option>APK keuring</option>
+              <option>Grote beurt</option>
+              <option>Kleine beurt</option>
+              <option>Diagnose</option>
+              <option>Bandenwissel</option>
+            </select>
+          </div>
+          <div class="space-y-2">
+            <label class="block text-sm font-bold text-primary" for="f-bericht">Bericht</label>
+            <textarea id="f-bericht" class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-tertiary-fixed-dim rounded-2xl p-5 text-sm min-h-[120px]" placeholder="Beschrijf hier uw vraag of probleem..."></textarea>
+          </div>
+          <!-- Error message (hidden by default) -->
+          <div id="form-error" class="hidden items-center gap-3 bg-red-50 border border-red-200 text-red-700 text-sm font-medium p-4 rounded-2xl">
+            <span class="material-symbols-outlined text-lg shrink-0">error</span>
+            <span id="form-error-text">Vul alstublieft uw naam en telefoonnummer in.</span>
+          </div>
+          <button class="w-full h-16 bg-primary text-white font-black rounded-2xl hover:bg-primary-container transition-all active:scale-95 shimmer-btn flex items-center justify-center gap-3 group mt-4" type="submit">
+            <span>Verstuur Aanvraag</span>
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="bg-primary text-white pt-24 pb-10 border-t border-white/5 font-headline">
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16 mb-20 items-start">
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-3 group">
+          <img alt="ARL Logo" class="w-auto object-contain transition-transform group-hover:scale-105 h-12" style="mix-blend-mode:screen" src="https://lh3.googleusercontent.com/aida/ADBb0ujUwHTjmoJoVSAknJXE1jKM1HKgYpVWWmDAg-eRb558AJlCCzgi9lxSEBBKl-WgehiTrt0QS245HjniJXkyoKUHS84H3uZvjAbZDjyMqkFGVBSX0vvla9lAJaiOeaYwlgSm4D5-PGzgkXHTf9bFniJY4y4M8TYG4VfPyVSjx787aFoNhz2_XNg1sjcKpxEvWBxZy7Px8AZ49MZILcEK3pUsBtXHPE68X7W5cYDWKTyfT4gTlrt81sjOLBhLvA6RFccjqHIJ_kaP7Kg"/>
+          <div class="flex flex-col">
+            <span class="text-xl font-black leading-none tracking-tighter">ARL Lelystad</span>
+            <span class="text-[8px] font-bold uppercase tracking-widest text-tertiary-fixed-dim opacity-70">Foundation</span>
+          </div>
+        </div>
+        <p class="text-white/60 text-[15px] leading-[1.6]">Premium kwaliteit voor eerlijke prijzen. Als non-profit stichting helpen we Lelystad mobiel te blijven met passie en vakmanschap.</p>
+        <!-- KvK badge in footer -->
+        <div class="flex items-center gap-2 mt-2">
+          <span class="material-symbols-outlined text-tertiary-fixed-dim text-base" style="font-variation-settings:'FILL' 1;">verified</span>
+          <span class="text-white/40 text-xs font-bold">KvK 63684071 · Non-profit stichting</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-[11px] font-black uppercase tracking-[0.3em] mb-6 text-white/90">Diensten</h4>
+        <ul class="space-y-4 text-[15px] text-white/50 font-medium">
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#contact">Reparatie / Laswerk</a></li>
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#contact">Zelf repareren</a></li>
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#contact">APK voorbereiding</a></li>
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#contact">APK keuring</a></li>
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#contact">Grote / Kleine beurt</a></li>
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#contact">Diagnose</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-[11px] font-black uppercase tracking-[0.3em] mb-6 text-white/90">Bedrijf</h4>
+        <ul class="space-y-4 text-[15px] text-white/50 font-medium">
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#home">Home</a></li>
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#over-ons">Over ons</a></li>
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#contact">Contact</a></li>
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#">Disclaimer</a></li>
+          <li><a class="hover:text-tertiary-fixed-dim transition-colors" href="#">Sitemap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-[11px] font-black uppercase tracking-[0.3em] mb-6 text-white/90">Contact</h4>
+        <div class="space-y-4 text-[15px] text-white/50 leading-relaxed font-medium">
+          <p>Spuiweg 6813<br/>8243 PW Lelystad</p>
+          <p class="text-tertiary-fixed-dim font-bold text-[15px]"><a href="tel:0630443004">06-30443004</a></p>
+          <p><a class="hover:text-tertiary-fixed-dim transition-colors" href="mailto:info@arlelystad.nl">info@arlelystad.nl</a></p>
+          <p>Ma – Za: 09:00 – 16:00</p>
+        </div>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-[#1B263B]/30 flex flex-col md:flex-row justify-between items-center gap-6">
+      <p class="text-white/40 text-[11px] font-medium">© 2026 ARL Lelystad – KvK: 63684071</p>
+      <p class="text-white/40 text-[11px] font-medium">Website door <a class="hover:text-white transition-colors" href="#">That</a></p>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /app-wrapper -->
+
+<script>
+// ── Reviews ──
+const reviews = [
+  { name:"Tattoo Willem", text:"Goede service. Mooie prijzen. Komen afspraken na. Vak mensen.", rating:5, meta:"Geverifieerd" },
+  { name:"jainil desai", text:"Very Good service. Staff is honest and will give you just the best advice. Most important, they will fix and deliver your car on the promised day.", rating:5, meta:"Geverifieerd" },
+  { name:"JEroen Kuit", text:"2 autobanden laten vervangen op velg. Banden zelf gekocht en door Autoreparatie Lelystad laten vervangen.", rating:5, meta:"Klant sinds 2021" },
+  { name:"Naomi", text:"Geweldig vakmanschap! Remmen moesten gedaan worden en ben echt meer dan tevreden! Ik ga voortaan alleen maar naar deze garage.", rating:5, meta:"Geverifieerd" },
+  { name:"Aarnoud Relleke", text:"Vandaag voor de 4de keer (in de afgelopen paar jaar) mijn auto naar volle tevredenheid laten repareren.", rating:5, meta:"Geverifieerd" },
+  { name:"W S", text:"I definitely recommend it. The fault was quickly diagnosed and I got the car back 3 hours after delivering the spare part. Reasonably priced.", rating:5, meta:"Geverifieerd" },
+  { name:"Diana De Kok", text:"Super geholpen, kon de auto op een tijd brengen die mij uit Kwam. Ook op zaterdag. Echte toppers ook voor de kleine beurs.", rating:5, meta:"Geverifieerd" },
+  { name:"Pascal", text:"Je wordt hier goed en vakkundig geholpen en hebben altijd een oplossing. Ze zijn ook erg vriendelijk en goedkoop.", rating:5, meta:"Geverifieerd" },
+  { name:"Dani Roelofs", text:"Auto kapot gegaan, paar dagen later is de auto alweer gemaakt teruggebracht. Super snelle en goede service voor een nette prijs!", rating:5, meta:"Geverifieerd" },
+  { name:"Hennie Worp", text:"Zeer tevreden, altijd vriendelijk. Top, staan altijd voor je klaar.", rating:5, meta:"Geverifieerd" },
+  { name:"Mikel Hernández", text:"Great service at reasonable prices! They checked the issue at arrival and offered a fast and affordable service.", rating:5, meta:"Geverifieerd" },
+  { name:"Isabelle Brouns", text:"Wij zijn erg tevreden! Ze leveren top werk en zijn goudeerlijk.", rating:5, meta:"Geverifieerd" },
+  { name:"Cathy Spek", text:"Goeie zaak met leuke mensen! Hebben me super geholpen, kom ik zeker terug :)", rating:5, meta:"Geverifieerd" },
+  { name:"Jeffrey Eijk", text:"Super vriendelijk en snel geholpen met de auto radio vandaag.", rating:5, meta:"Geverifieerd" },
+  { name:"Luciano Sandvliet", text:"Net langs geweest voor een radio installatie, was na 5 minuten alweer buiten! Top kerels zijn het!", rating:5, meta:"Geverifieerd" },
+  { name:"Jord van Zantvliet", text:"Echt een super garage. Super vriendelijk, flexibel en goedkoop. Aanrader!", rating:5, meta:"Geverifieerd" },
+  { name:"Angelique Robijn", text:"Goede service, leuke mensen.", rating:5, meta:"Geverifieerd" },
+  { name:"bass bob", text:"In een woord super! Super vriendelijk! En hele leuke mensen! Ze helpen je altijd!", rating:5, meta:"Geverifieerd" }
+];
+
+function createReviewCard(r) {
+  const initials = r.name.split(' ').map(n=>n[0]).join('').toUpperCase().substring(0,2);
+  const stars = Array(r.rating).fill(`<span class="material-symbols-outlined text-xl text-tertiary-fixed-dim" style="font-variation-settings:'FILL' 1;">star</span>`).join('');
+  return `<div class="inline-block w-[380px] flex-shrink-0 px-4">
+    <div class="bg-surface-container-low p-8 rounded-[2rem] border border-black/[0.03] transition-transform duration-500 hover:-translate-y-2 h-full flex flex-col justify-between whitespace-normal">
+      <div>
+        <div class="flex mb-4">${stars}</div>
+        <p class="text-secondary text-base mb-6 italic leading-relaxed">"${r.text}"</p>
+      </div>
+      <div class="flex items-center gap-4 border-t border-black/5 pt-5">
+        <div class="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-black text-sm shrink-0">${initials}</div>
+        <div>
+          <span class="block font-bold text-primary text-sm">${r.name}</span>
+          <span class="text-[10px] text-secondary/60 font-bold uppercase tracking-widest">${r.meta}</span>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+const track = document.getElementById('reviews-marquee');
+const content = reviews.map(r => createReviewCard(r)).join('');
+track.innerHTML = content + content;
+
+
+
+// ── Mobile menu ──
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('menu-icon').textContent = 'menu';
+}
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('menu-icon');
+  const isOpen = menu.classList.toggle('open');
+  icon.textContent = isOpen ? 'close' : 'menu';
+});
+// Close mobile menu on outside click
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('mobile-menu');
+  const toggle = document.getElementById('menu-toggle');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+    closeMobileMenu();
+  }
+});
+
+// ── Scroll: nav shrink + reveal ──
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('main-nav');
+  if (window.scrollY > 100) nav.classList.add('nav-scrolled');
+  else nav.classList.remove('nav-scrolled');
+
+  document.querySelectorAll('.reveal').forEach(r => {
+    if (r.getBoundingClientRect().top < window.innerHeight - 80) r.classList.add('active');
+  });
+});
+
+// ── Form submit ──
+function handleSubmit(e) {
+  e.preventDefault();
+  const naam = document.getElementById('f-naam').value.trim();
+  const tel  = document.getElementById('f-tel').value.trim();
+  const errEl = document.getElementById('form-error');
+  const errTxt = document.getElementById('form-error-text');
+
+  if (!naam || !tel) {
+    errTxt.textContent = !naam && !tel
+      ? 'Vul alstublieft uw naam en telefoonnummer in.'
+      : !naam ? 'Vul alstublieft uw naam in.' : 'Vul alstublieft uw telefoonnummer in.';
+    errEl.classList.remove('hidden');
+    errEl.classList.add('flex');
+    return;
+  }
+  errEl.classList.add('hidden');
+  errEl.classList.remove('flex');
+
+  // Show loading briefly then success
+  const btn = e.target.querySelector('button[type=submit]');
+  btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Versturen...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    document.getElementById('form-success').classList.remove('hidden');
+    document.getElementById('form-success').classList.add('show','flex');
+  }, 900);
+}
+
+function resetForm() {
+  document.getElementById('contact-form').reset();
+  const succ = document.getElementById('form-success');
+  succ.classList.add('hidden');
+  succ.classList.remove('show','flex');
+  const btn = document.querySelector('#contact-form button[type=submit]');
+  btn.innerHTML = '<span>Verstuur Aanvraag</span><span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>';
+  btn.disabled = false;
+}
+
+// ── Dynamic vh ──
+function setVh() {
+  document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+}
+setVh();
+window.addEventListener('resize', setVh);
+
+// ── Scroll reveal initial check ──
+document.querySelectorAll('.reveal').forEach(r => {
+  if (r.getBoundingClientRect().top < window.innerHeight - 80) r.classList.add('active');
+});
+
+</script>
+</body>
+</html>

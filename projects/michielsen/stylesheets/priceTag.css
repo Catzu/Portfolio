@@ -1,0 +1,13 @@
+.price-badge {
+  display: inline-flex; flex-direction: column;
+  background: var(--accm); border: 1px solid rgba(233,60,70,.3);
+  border-radius: 8px; padding: 16px 24px;
+}
+.price-badge .from {
+  font-family: var(--ff-head); font-size: 11px;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px;
+}
+.price-badge .amount {
+  font-family: var(--ff-mono); font-size: 36px; font-weight: 500;
+  color: var(--white); line-height: 1;
+}

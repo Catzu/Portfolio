@@ -1,0 +1,29 @@
+.diensten-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3px;
+}
+.dienst-big-card {
+  background: var(--surf); border: 1px solid var(--border);
+  padding: 52px 44px; position: relative;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: all .25s; cursor: pointer;
+}
+.dienst-big-card:hover {
+  border-color: var(--accent); background: var(--raised);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(233,60,70,.25), 0 16px 48px rgba(0,0,0,.5);
+}
+.dienst-big-card .card-num {
+  font-family: var(--ff-mono); font-size: 11px; color: var(--accent);
+  position: absolute; top: 24px; right: 24px;
+}
+.dienst-big-card h3 {
+  font-family: var(--ff-head); font-weight: 700;
+  font-size: 28px; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--white);
+}
+.dienst-big-card p { font-size: 15px; line-height: 1.7; color: var(--muted); }
+.dienst-big-card .card-price {
+  font-family: var(--ff-mono); font-size: 13px; color: var(--accent); margin-top: 4px;
+}
+.dienst-big-card .card-ico { font-size: 40px; margin-bottom: 4px; }
