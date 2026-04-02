@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Autoservice Mauritz | Premium Auto-onderhoud in Almere</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#410001",
+              "background": "#131313",
+              "on-error": "#690005",
+              "surface-container": "#201f1f",
+              "primary-fixed-dim": "#ffb4a9",
+              "tertiary-fixed": "#e2e2e2",
+              "secondary": "#c1c5e2",
+              "surface-tint": "#ffb4a9",
+              "surface-container-low": "#1c1b1b",
+              "surface-bright": "#393939",
+              "on-surface-variant": "#e1bfba",
+              "surface": "#131313",
+              "on-surface": "#e5e2e1",
+              "on-error-container": "#ffdad6",
+              "on-tertiary-container": "#282a2a",
+              "on-primary-container": "#5c0001",
+              "surface-variant": "#353534",
+              "on-background": "#e5e2e1",
+              "inverse-on-surface": "#313030",
+              "on-tertiary-fixed": "#1a1c1c",
+              "outline": "#a88a85",
+              "surface-dim": "#131313",
+              "on-secondary-container": "#afb4d0",
+              "outline-variant": "#59413d",
+              "primary-container": "#f65e4e",
+              "secondary-fixed": "#dde1ff",
+              "secondary-fixed-dim": "#c1c5e2",
+              "on-secondary-fixed": "#151a30",
+              "tertiary": "#c6c6c7",
+              "inverse-surface": "#e5e2e1",
+              "on-primary-fixed-variant": "#8e120d",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "on-tertiary": "#2f3131",
+              "on-secondary": "#2a2f46",
+              "surface-container-highest": "#353534",
+              "surface-container-lowest": "#0e0e0e",
+              "tertiary-container": "#909191",
+              "secondary-container": "#41465e",
+              "error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#454747",
+              "surface-container-high": "#2a2a2a",
+              "inverse-primary": "#b12c22",
+              "primary": "#ffb4a9",
+              "primary-fixed": "#ffdad5",
+              "on-primary": "#690002",
+              "on-secondary-fixed-variant": "#41465e",
+              "error": "#ffb4ab"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-glow-primary {
+            text-shadow: 0 0 15px rgba(246, 94, 78, 0.4);
+        }
+        .glass-nav {
+            background: rgba(19, 19, 19, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        
+        /* Animations */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes hero-zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .animate-hero-bg {
+            animation: hero-zoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        .hero-content-fade {
+            animation: fade-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white overflow-x-hidden">
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-8 py-4 max-w-full glass-nav z-50">
+<div class="text-2xl font-black tracking-tighter text-on-surface uppercase">
+        Autoservice <span class="text-primary-container">Mauritz</span>
+</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-primary-container font-bold border-b-2 border-primary-container pb-1" href="#">Home</a>
+<a class="text-on-surface hover:text-primary-container transition-colors" href="#">Diensten</a>
+<a class="text-on-surface hover:text-primary-container transition-colors" href="#">APK</a>
+<a class="text-on-surface hover:text-primary-container transition-colors" href="#">Reviews</a>
+<a class="text-on-surface hover:text-primary-container transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="hidden lg:flex items-center gap-2 text-on-surface font-bold hover:text-primary-container transition-all" href="tel:0365254508">
+<span class="material-symbols-outlined text-primary-container">call</span>
+            036 525 4508
+        </a>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(246,94,78,0.3)]">
+            Afspraak Maken
+        </button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Close-up van een motor" class="w-full h-full object-cover opacity-40 animate-hero-bg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClhaVDqNR_nhJDZbXa3u_klJLxPJtPIA1Nj-tlChRWvHeCO1QZEr3hcz48KOI5bXSIcUI8tJg-FKp9YDKvAIl76kReQR2P98j7bI7S9ZEj4-5RcKcmzcoPIjnaCzXNr-UbDgjLs7Is-LHf400dkx_UpFlv91KKpO7v3Sip0I_GBZniJOl8gD1q5VRklzTzuJo4gjVlJo25GU_rybkTT9mfL-rMaMxbI3tfbNmEQKDsgJMLLgwfihYPEl9kmSu-4s-09KwGM77EE-4"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 px-8 md:px-16 max-w-5xl">
+<div class="hero-content-fade inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-6 border border-outline-variant/20" style="animation-delay: 0.2s; opacity: 0;">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="text-xs font-bold tracking-widest uppercase">Open tot 18:00</span>
+</div>
+<h1 class="hero-content-fade text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6" style="animation-delay: 0.4s; opacity: 0;">
+                Professionele Zorg <br/>
+<span class="text-primary-container text-glow-primary">Voor Uw Auto in Almere</span>
+</h1>
+<p class="hero-content-fade text-lg md:text-xl text-secondary max-w-2xl mb-10 leading-relaxed" style="animation-delay: 0.6s; opacity: 0;">
+                Gecertificeerde technici voor precisie-diagnostiek, onderhoud en APK-services voor premium voertuigen. Ervaar de fusie van traditie en technologie.
+            </p>
+<div class="hero-content-fade flex flex-col sm:flex-row gap-4" style="animation-delay: 0.8s; opacity: 0;">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-bold text-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Plan uw APK of reparatie
+                    <span class="material-symbols-outlined">calendar_today</span>
+</button>
+<a class="bg-surface-container-high/60 backdrop-blur-md border border-outline-variant/30 text-on-surface px-8 py-4 rounded-lg font-bold text-lg hover:bg-surface-container-high transition-all flex items-center justify-center gap-2" href="tel:0365254508">
+                    Bel nu: 036 525 4508
+                </a>
+</div>
+</div>
+</section>
+<!-- Service Overview -->
+<section class="reveal py-24 px-8 max-w-7xl mx-auto" id="services-section">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary-container mb-4">Vakmanschap &amp; Precisie</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight">Onze Diensten</h3>
+</div>
+<p class="text-secondary max-w-sm text-right leading-relaxed">
+                Elk voertuig dat onze werkplaats binnenkomt, wordt behandeld met het hoogste niveau van technische expertise en zorg.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-8 bg-surface-container-low p-8 rounded-xl relative overflow-hidden group hover:bg-surface-container transition-all duration-300">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6">verified_user</span>
+<h4 class="text-2xl font-bold mb-4">APK Keuringen</h4>
+<p class="text-secondary max-w-md">Officiële RDW-erkende inspecties om ervoor te zorgen dat uw voertuig voldoet aan alle veiligheids- en milieunormen.</p>
+</div>
+<img alt="Inspectie" class="absolute top-0 right-0 h-full w-1/3 object-cover opacity-10 group-hover:opacity-20 transition-opacity grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO2_r-RCgeRq8YucAtQlWtcJT_VF2tBMz0gR5q4QBRnnLQsJ18YqVTRgI_ZlsXztG-XKAZ0VtFn4AuWwLoV4GGGVLOojOaeZ1azv2u5bdRC3K-BTernJ5oVaPuXQT89yhbbpQKwvF3Wq2BxNE8-CCJ9xWM5Au-odW69kVLK-dtpbFCA5q4ogFHVFgV9hsH7o7PUcqg-Lp_yWSbnUMo4pEkB7ttE0h2ywlKKjDOtuh3e3iOLxxInMGJYMloGVtjRZlqhBaisBSE-bY"/>
+</div>
+<div class="md:col-span-4 bg-surface-container-low p-8 rounded-xl hover:bg-surface-container transition-all duration-300 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6">build</span>
+<h4 class="text-2xl font-bold mb-4">Onderhoud</h4>
+</div>
+<p class="text-secondary">Houd uw motor in topconditie met onze uitgebreide onderhoudspakketten.</p>
+</div>
+<div class="md:col-span-4 bg-surface-container-low p-8 rounded-xl hover:bg-surface-container transition-all duration-300 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6">query_stats</span>
+<h4 class="text-2xl font-bold mb-4">Diagnostiek</h4>
+</div>
+<p class="text-secondary">Geavanceerde foutopsporing met behulp van moderne computerdiagnosesystemen voor alle merken.</p>
+</div>
+<div class="md:col-span-8 bg-surface-container-low p-8 rounded-xl relative overflow-hidden group hover:bg-surface-container transition-all duration-300">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6">tire_repair</span>
+<h4 class="text-2xl font-bold mb-4">Remmen &amp; Banden</h4>
+<p class="text-secondary max-w-md">Precisie-uitlijning, bandenwissel en revisie van hoogwaardige remsystemen.</p>
+</div>
+<img alt="Remmen" class="absolute top-0 right-0 h-full w-1/3 object-cover opacity-10 group-hover:opacity-20 transition-opacity grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx4gfLrgLlHDkA80GRnrXLlwlbfRY_3uxkoHmV3Z3zEaCTgPbhuEsH45l02C5K_S8JevGAd-Ob8cNePx2UfOWFUGNiVHuhdzPbLN3mUvZGqSBAgbuIa02AqIIh4pJC2kFwgpDmSorjAnKzaLQ4osBtHLPxYAe1Y_iaoAHySA9WET3sm9AnWvfjzJ7p91H-7G08vxKGYYOhRKQvpuROU5UoDdaOzsxNKFBU7_BroQQ6jgiW224B3SxD6c28L7KNuFtv64_JhOcSfSI"/>
+</div>
+</div>
+</section>
+<!-- Trust Signals -->
+<section class="reveal bg-surface-container-lowest py-24 overflow-hidden" id="reviews-section">
+<div class="px-8 max-w-7xl mx-auto mb-12">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-end gap-4">
+<div>
+<h3 class="text-4xl font-black mb-2">4.9/5 Sterren</h3>
+<p class="text-secondary">Gebaseerd op 123 Google reviews</p>
+</div>
+</div>
+</div>
+<div class="relative w-full">
+<div class="animate-scroll flex gap-6 px-8">
+<!-- Review 1 -->
+<div class="bg-surface-container p-8 rounded-xl border-l-4 border-primary-container w-[400px] flex-shrink-0">
+<p class="text-on-surface mb-6 italic">"Mauritz is een topmonteur. Transparante prijzen en uitzonderlijke technische kennis. De enige plek waar ik mijn auto vertrouw in Almere."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-primary-container">K</div>
+<div><p class="font-bold">Kirill</p><p class="text-xs text-secondary">Geverifieerde Klant</p></div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container p-8 rounded-xl border-l-4 border-secondary w-[400px] flex-shrink-0">
+<p class="text-on-surface mb-6 italic">"Snelle service, professioneel personeel en ze leggen altijd precies uit wat er gedaan moet worden. Een aanrader voor APK."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-secondary">M</div>
+<div><p class="font-bold">Marco</p><p class="text-xs text-secondary">Lokale Inwoner</p></div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-container p-8 rounded-xl border-l-4 border-primary-container w-[400px] flex-shrink-0">
+<p class="text-on-surface mb-6 italic">"Eerlijk advies en zeer vakkundig. Mijn BMW rijdt weer als nieuw na het grote onderhoud."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-primary-container">J</div>
+<div><p class="font-bold">Jan</p><p class="text-xs text-secondary">Geverifieerde Klant</p></div>
+</div>
+</div>
+<!-- Loop -->
+<div class="bg-surface-container p-8 rounded-xl border-l-4 border-primary-container w-[400px] flex-shrink-0">
+<p class="text-on-surface mb-6 italic">"Mauritz is een topmonteur. Transparante prijzen en uitzonderlijke technische kennis. De enige plek waar ik mijn auto vertrouw in Almere."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-primary-container">K</div>
+<div><p class="font-bold">Kirill</p><p class="text-xs text-secondary">Geverifieerde Klant</p></div>
+</div>
+</div>
+<div class="bg-surface-container p-8 rounded-xl border-l-4 border-secondary w-[400px] flex-shrink-0">
+<p class="text-on-surface mb-6 italic">"Snelle service, professioneel personeel en ze leggen altijd precies uit wat er gedaan moet worden. Een aanrader voor APK."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-secondary">M</div>
+<div><p class="font-bold">Marco</p><p class="text-xs text-secondary">Lokale Inwoner</p></div>
+</div>
+</div>
+<div class="bg-surface-container p-8 rounded-xl border-l-4 border-primary-container w-[400px] flex-shrink-0">
+<p class="text-on-surface mb-6 italic">"Eerlijk advies en zeer vakkundig. Mijn BMW rijdt weer als nieuw na het grote onderhoud."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-primary-container">J</div>
+<div><p class="font-bold">Jan</p><p class="text-xs text-secondary">Geverifieerde Klant</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact & Location -->
+<section class="reveal py-24 px-8 max-w-7xl mx-auto" id="workshop-section">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+<!-- Left Side: Contact Info & Map -->
+<div class="space-y-12 order-1 lg:order-1 flex flex-col">
+<div>
+<h2 class="text-4xl font-black mb-8">Bezoek Onze Werkplaats</h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container p-3 bg-primary-container/10 rounded-lg">location_on</span>
+<div>
+<p class="font-bold text-xl mb-1">Adres</p>
+<p class="text-secondary">Operetteweg 48, 1323 VB Almere</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container p-3 bg-primary-container/10 rounded-lg">schedule</span>
+<div>
+<p class="font-bold text-xl mb-1">Openingstijden</p>
+<p class="text-secondary">Maandag - Vrijdag: 08:30 - 18:00</p>
+<p class="text-secondary">Zaterdag: Op Afspraak</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container p-3 bg-primary-container/10 rounded-lg">call</span>
+<div>
+<p class="font-bold text-xl mb-1">Telefoon</p>
+<p class="text-secondary">036 525 4508</p>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-2xl overflow-hidden border border-outline-variant/20 shadow-2xl bg-surface-container-lowest min-h-[200px]">
+<iframe allowfullscreen="" height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.3205085675927!2d5.183144476994386!3d52.364608147722215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c61132a162c275%3A0xb35e30958d1fb088!2sAutoservice%20Mauritz!5e0!3m2!1snl!2snl!4v1775116176223!5m2!1snl!2snl" style="border:0;" width="100%"></iframe>
+</div>
+</div>
+<!-- Right Side: Comprehensive Form -->
+<div class="bg-surface-container-low p-10 rounded-2xl border border-outline-variant/10 shadow-xl order-2 lg:order-2">
+<h2 class="text-3xl font-black mb-2">Directe Aanvraag</h2>
+<p class="text-secondary mb-8">Vul het formulier in voor een snelle prijsopgave of afspraakbevestiging.</p>
+<form class="space-y-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5 order-2 lg:order-2">
+<label class="text-xs font-bold uppercase tracking-wider text-secondary/80 ml-1">Volledige Naam</label>
+<input class="bg-surface-container-highest border-none rounded-lg px-4 py-3.5 focus:ring-2 focus:ring-primary-container text-on-surface placeholder:text-secondary/40" placeholder="Bijv. Jan de Vries" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5 order-1 lg:order-1">
+<label class="text-xs font-bold uppercase tracking-wider text-secondary/80 ml-1">Kenteken</label>
+<input class="bg-surface-container-highest border-none rounded-lg px-4 py-3.5 focus:ring-2 focus:ring-primary-container text-on-surface placeholder:text-secondary/40 uppercase" placeholder="XX-000-X" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5 order-2 lg:order-2">
+<label class="text-xs font-bold uppercase tracking-wider text-secondary/80 ml-1">E-mail Adres</label>
+<input class="bg-surface-container-highest border-none rounded-lg px-4 py-3.5 focus:ring-2 focus:ring-primary-container text-on-surface placeholder:text-secondary/40" placeholder="jan@voorbeeld.nl" type="email"/>
+</div>
+<div class="flex flex-col gap-1.5 order-1 lg:order-1">
+<label class="text-xs font-bold uppercase tracking-wider text-secondary/80 ml-1">Telefoonnummer</label>
+<input class="bg-surface-container-highest border-none rounded-lg px-4 py-3.5 focus:ring-2 focus:ring-primary-container text-on-surface placeholder:text-secondary/40" placeholder="06 12345678" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-secondary/80 ml-1">Bericht / Beschrijving Dienst</label>
+<textarea class="bg-surface-container-highest border-none rounded-lg px-4 py-3.5 focus:ring-2 focus:ring-primary-container text-on-surface placeholder:text-secondary/40 min-h-[120px]" placeholder="Beschrijf hier uw gewenste werkzaamheden of vragen..."></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-black py-4 rounded-lg hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-primary-container/20 mt-4">
+                        Offerte Aanvragen
+                    </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-black text-on-surface tracking-tighter uppercase">
+                Autoservice <span class="text-primary-container">Mauritz</span>
+</div>
+<p class="text-secondary text-sm leading-relaxed">
+                Premium auto-onderhoud in het hart van Almere. Gespecialiseerd in diagnostiek en onderhoud voor de moderne bestuurder.
+            </p>
+</div>
+<div class="space-y-4">
+<h5 class="text-on-surface font-bold">Diensten</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-secondary hover:text-primary-container transition-colors text-sm" href="#">APK Keuringen</a>
+<a class="text-secondary hover:text-primary-container transition-colors text-sm" href="#">Motorreparatie</a>
+<a class="text-secondary hover:text-primary-container transition-colors text-sm" href="#">Olieverversing</a>
+<a class="text-secondary hover:text-primary-container transition-colors text-sm" href="#">Diagnostiek</a>
+<a class="text-secondary hover:text-primary-container transition-colors text-sm" href="#">Remmen &amp; Banden</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="text-on-surface font-bold">Bedrijf</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-secondary hover:text-primary-container transition-colors text-sm" href="#">Home</a>
+<a class="text-secondary hover:text-primary-container transition-colors text-sm" href="#">Over Ons</a>
+<a class="text-secondary hover:text-primary-container transition-colors text-sm" href="#">Privacybeleid</a>
+<a class="text-secondary hover:text-primary-container transition-colors text-sm" href="#">Algemene Voorwaarden</a>
+<a class="text-primary-container transition-colors text-sm font-bold text-secondary hover:text-primary-container" href="#">Disclaimer</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="text-on-surface font-bold">Contactinformatie</h5>
+<div class="flex flex-col gap-2 text-sm text-secondary">
+<p>Operetteweg 48, 1323 VB Almere</p>
+<p>036 525 4508</p>
+<p>info@autoservicemauritz.nl</p>
+</div>
+</div>
+</div>
+<div class="px-8 py-6 border-t border-outline-variant/5 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-4 justify-start">
+<div class="flex gap-4 items-center">
+<span class="text-[10px] lowercase font-light text-secondary/60">© 2024 autoservice mauritz. alle rechten voorbehouden.</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // Scroll Reveal Script
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => observer.observe(el));
+</script>
+</body></html>
