@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Garage Almere Poort | Uw Specialist in de Buurt</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#E93C46",
+              "primary-container": "#E93C46",
+              "on-primary-container": "#FFFFFF",
+              "secondary": "#5edcb1",
+              "surface": "#14171b",
+              "surface-container": "#1e2227",
+              "surface-container-high": "#282d33",
+              "surface-container-low": "#191d22",
+              "surface-container-highest": "#333941",
+              "on-surface": "#e1e2e8",
+              "on-surface-variant": "#e4bebc",
+              "outline-variant": "#5b403f",
+              "tertiary": "#bdc6df"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "16px", "lg": "24px", "xl": "32px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-intro {
+            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.5s; }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #E93C46;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .technical-grid {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .clip-slant {
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+        }
+
+        h1, h2, h3, .uppercase-tight {
+            letter-spacing: -0.01em !important;
+        }
+
+        /* Scroll Reveal Utility Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Sticky Navbar styles */
+        #main-nav {
+            transform: translateY(-100%);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #main-nav.scrolled {
+            transform: translateY(0);
+        }
+        #initial-nav {
+            transition: opacity 0.3s ease;
+        }
+        #initial-nav.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Infinite Scroll Carousel Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-350px * 3 - 2rem * 3)); }
+        }
+        .carousel-track {
+            display: flex;
+            width: calc(350px * 6 + 2rem * 6);
+            animation: scroll 30s linear infinite;
+        }
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-white technical-grid">
+<!-- Initial Transparent Navigation (Fixed on Hero) -->
+<nav class="absolute top-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-7xl z-40 bg-transparent" id="initial-nav">
+<div class="flex justify-between items-center px-8 py-4 font-body uppercase tracking-tight">
+<div class="text-2xl font-bold tracking-tighter text-[#e1e2e8] flex items-center gap-2 font-body">
+<span class="w-1.5 h-6 bg-[#E93C46] rounded-full"></span>
+            GARAGE ALMERE POORT
+        </div>
+<div class="hidden lg:flex items-center space-x-10 font-body uppercase font-medium text-sm tracking-normal">
+<a class="nav-link text-on-surface hover:text-[#E93C46] transition-colors" href="#">Home</a>
+<a class="nav-link text-[#bdc6df] hover:text-[#E93C46] transition-colors" href="#">Diensten</a>
+<a class="nav-link text-[#bdc6df] hover:text-[#E93C46] transition-colors" href="#">Over Ons</a>
+<a class="nav-link text-[#bdc6df] hover:text-[#E93C46] transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-[#E93C46] text-white font-bold px-8 py-3 rounded-xl hover:shadow-[0_0_20px_rgba(233,60,70,0.4)] transition-all font-body uppercase tracking-normal text-xs active:scale-95 transform">
+            AFSPRAAK MAKEN
+        </button>
+</div>
+</nav>
+<!-- Sticky Animated Navbar (Appears on Scroll) -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#1e2227]/90 backdrop-blur-xl border-b border-white/5 py-4" id="main-nav">
+<div class="max-w-7xl mx-auto px-8 flex justify-between items-center font-body uppercase tracking-tight">
+<div class="text-xl font-bold tracking-tighter text-[#e1e2e8] flex items-center gap-2 font-body">
+<span class="w-1 h-5 bg-[#E93C46] rounded-full"></span>
+            GARAGE ALMERE POORT
+        </div>
+<div class="hidden lg:flex items-center space-x-8 font-body uppercase font-medium text-sm tracking-normal">
+<a class="nav-link text-on-surface hover:text-[#E93C46] transition-colors" href="#">Home</a>
+<a class="nav-link text-[#bdc6df] hover:text-[#E93C46] transition-colors" href="#">Diensten</a>
+<a class="nav-link text-[#bdc6df] hover:text-[#E93C46] transition-colors" href="#">Over Ons</a>
+<a class="nav-link text-[#bdc6df] hover:text-[#E93C46] transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-[#E93C46] text-white font-bold px-6 py-2.5 rounded-lg hover:brightness-110 transition-all font-body uppercase text-[10px] active:scale-95 transform">
+            AFSPRAAK
+        </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen min-h-[800px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<!-- High-Quality Automotive Background Video -->
+<video autoplay="" class="w-full h-full object-cover" loop="" muted="" playsinline="" poster="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&amp;fit=crop&amp;q=80&amp;w=1920">
+<source src="https://cdn.pixabay.com/vimeo/462100821/car-52073.mp4?width=1280&amp;hash=881f33f67645f5c3577317e88383f6050b91e9f6" type="video/mp4"/>
+</video>
+<!-- Refined Dark Overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/40 to-surface"></div>
+<div class="absolute inset-0 bg-surface/20"></div>
+</div>
+<div class="container mx-auto px-6 md:px-12 z-10">
+<div class="max-w-4xl">
+<span class="animate-intro delay-1 font-label text-primary uppercase tracking-[0.3em] mb-8 block text-xs font-bold">Uw vertrouwde buurtgarage in Almere Poort</span>
+<h1 class="animate-intro delay-2 text-6xl md:text-8xl lg:text-9xl font-headline font-bold leading-[0.95] mb-12 tracking-tighter">
+                    ALTIJD HET <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-white">JUISTE ADRES.</span>
+</h1>
+<p class="animate-intro delay-3 text-lg md:text-xl text-tertiary max-w-xl mb-14 font-light leading-relaxed border-l-2 border-primary/30 pl-8">
+                    U bent ongeacht het automerk bij ons welkom. Wij zijn dé specialist voor keuring en onderhoud aan uw auto in het hart van Almere Poort.
+                </p>
+<div class="animate-intro delay-3 flex flex-wrap gap-6">
+<button class="bg-primary text-white px-12 py-6 rounded-2xl font-headline font-bold text-lg hover:shadow-2xl hover:brightness-110 transition-all uppercase tracking-normal flex items-center gap-4">
+                        DIRECT CONTACT
+                        <span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+</button>
+<button class="group flex items-center gap-4 text-on-surface font-headline font-bold text-lg uppercase tracking-normal py-6 px-10 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+                        DIENSTEN
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="east">east</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Transition Intro Section -->
+<section class="reveal relative z-20 py-32 md:py-48 bg-surface">
+<div class="container mx-auto px-6 md:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-16 border-b border-white/5 pb-32">
+<div class="max-w-3xl">
+<h2 class="text-4xl md:text-6xl font-headline font-bold uppercase tracking-tighter leading-tight">
+                        RDW ERKEND. <br/>
+<span class="text-primary">STEK GECERTIFICEERD.</span><br/>
+                        ALTIJD VAKKUNDIG.
+                    </h2>
+</div>
+<div class="md:max-w-sm">
+<p class="font-label text-[10px] text-primary uppercase tracking-[0.3em] mb-6 font-bold">Onze Standaard</p>
+<p class="text-tertiary text-lg font-light leading-relaxed opacity-90">
+                        Als officiële RDW-keuringsinstantie en SCM-erkend alarmspecialist in Almere Poort, garanderen we technische perfectie voor elk merk en model.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 pt-16">
+<div class="flex flex-col gap-3">
+<span class="text-[10px] font-label text-tertiary/40 uppercase tracking-widest font-bold">Locatie</span>
+<span class="text-base font-headline font-bold uppercase">Argonweg 11, Almere</span>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-[10px] font-label text-tertiary/40 uppercase tracking-widest font-bold">Status</span>
+<span class="text-base font-headline font-bold uppercase text-primary">RDW Officieel Erkend</span>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-[10px] font-label text-tertiary/40 uppercase tracking-widest font-bold">Expertise</span>
+<span class="text-base font-headline font-bold uppercase">Airco &amp; Hybride</span>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-[10px] font-label text-tertiary/40 uppercase tracking-widest font-bold">Beveiliging</span>
+<span class="text-base font-headline font-bold uppercase text-primary">SCM Alarmservice</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="reveal py-48 bg-surface-container-low/30" id="services">
+<div class="container mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-24">
+<div class="lg:col-span-5">
+<span class="font-label text-primary uppercase tracking-[0.3em] mb-6 block text-xs font-bold">Onze Expertise</span>
+<h2 class="text-5xl md:text-7xl font-headline font-bold mb-12 uppercase tracking-tighter leading-[0.95]">VOLLEDIGE <br/><span class="text-primary">ZORG</span> VOOR <br/>UW AUTO.</h2>
+<p class="text-tertiary text-xl font-light mb-16 leading-relaxed opacity-90">
+                        Van APK-keuringen voor benzine, diesel, LPG en hybride auto's tot complexe storingsdiagnoses. Wij hebben de apparatuur en kennis in huis.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-center gap-6 bg-surface-container p-8 rounded-2xl border border-white/5 shadow-lg">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="verified">verified</span>
+<span class="font-headline font-bold uppercase tracking-normal">Onderhoud &amp; Reparatie Alle Merken</span>
+</div>
+<div class="flex items-center gap-6 bg-surface-container-low p-8 rounded-2xl border border-white/5 opacity-70">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="bolt">bolt</span>
+<span class="font-headline font-bold uppercase tracking-normal">Hybride Specialist</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-high p-12 rounded-[2rem] hover:bg-primary transition-all duration-500 group border border-white/5 shadow-xl">
+<span class="material-symbols-outlined text-5xl mb-8 text-primary group-hover:text-white" data-icon="fact_check">fact_check</span>
+<h3 class="text-2xl font-headline font-bold mb-6 uppercase group-hover:text-white">APK-KEURINGEN</h3>
+<p class="text-tertiary group-hover:text-white/80 text-base leading-relaxed">Benzine, diesel, LPG en hybride auto's. Snel en vakkundig uitgevoerd.</p>
+</div>
+<div class="bg-surface-container-high p-12 rounded-[2rem] hover:bg-primary transition-all duration-500 group border border-white/5 shadow-xl">
+<span class="material-symbols-outlined text-5xl mb-8 text-primary group-hover:text-white" data-icon="settings_suggest">settings_suggest</span>
+<h3 class="text-2xl font-headline font-bold mb-6 uppercase group-hover:text-white">GROTE BEURT</h3>
+<p class="text-tertiary group-hover:text-white/80 text-base leading-relaxed">Grondig onderhoud voor optimale veiligheid en levensduur van uw voertuig.</p>
+</div>
+<div class="bg-surface-container-high p-12 rounded-[2rem] hover:bg-primary transition-all duration-500 group border border-white/5 shadow-xl">
+<span class="material-symbols-outlined text-5xl mb-8 text-primary group-hover:text-white" data-icon="ac_unit">ac_unit</span>
+<h3 class="text-2xl font-headline font-bold mb-6 uppercase group-hover:text-white">AIRCOSERVICE</h3>
+<p class="text-tertiary group-hover:text-white/80 text-base leading-relaxed">STEK-erkende service voor een fris en optimaal werkend klimaat.</p>
+</div>
+<div class="bg-surface-container-high p-12 rounded-[2rem] hover:bg-primary transition-all duration-500 group border border-white/5 shadow-xl">
+<span class="material-symbols-outlined text-5xl mb-8 text-primary group-hover:text-white" data-icon="car_repair">car_repair</span>
+<h3 class="text-2xl font-headline font-bold mb-6 uppercase group-hover:text-white">REMMENSERVICE</h3>
+<p class="text-tertiary group-hover:text-white/80 text-base leading-relaxed">Controle en vervanging van remschijven en blokken voor maximale remkracht.</p>
+</div>
+<div class="bg-surface-container-high p-12 rounded-[2rem] hover:bg-primary transition-all duration-500 group md:col-span-2 border border-white/5 shadow-xl">
+<div class="flex flex-col md:flex-row md:items-center gap-10">
+<span class="material-symbols-outlined text-5xl text-primary group-hover:text-white" data-icon="biotech">biotech</span>
+<div>
+<h3 class="text-2xl font-headline font-bold mb-4 uppercase group-hover:text-white">STORINGSDIAGNOSE</h3>
+<p class="text-tertiary group-hover:text-white/80 text-base leading-relaxed">Geavanceerde uitleesapparatuur voor het accuraat lokaliseren en verhelpen van technische storingen.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Welcome Section -->
+<section class="reveal py-48 bg-surface" id="about">
+<div class="container mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+<div class="relative order-2 lg:order-1">
+<img alt="Modern Garage Service" class="w-full h-[700px] object-cover grayscale rounded-[3rem] shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSYH5UINc6gerEcL4beAyWGqqk5tHVo9DrDUxW8MfWg5zFP9oQic5cemG1GpZVdYwfxw57Ts21AhPA9-ye19bv8mQAgmasai4e2dHv2OUl9GzmiQ0n7SYlXe2HG000TejLS_f--bsizitPCsZwUKzHzJVWAApWC9G2Njl1M1KKMZfY1-h3pVHg9zMvesAI1soRRsBm7b5oMaxGDqO-qTfImj2vFlspS6mtN_QfvMTMsdNhaxMl1GftJ9jodUfzBkxUxqVsqUKv4Wg"/>
+<div class="absolute -bottom-6 -right-6 md:-left-6 md:right-auto bg-primary px-8 py-6 rounded-2xl shadow-[0_20px_40px_-10px_rgba(233,60,70,0.5)]">
+<p class="font-headline font-bold text-2xl text-white">UW BUURT GARAGE</p>
+<p class="font-label text-[8px] tracking-[0.2em] uppercase text-white/80 mt-2 font-bold">PERSOONLIJK &amp; EERLIJK</p>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<h2 class="text-5xl font-headline font-bold mb-10 uppercase leading-tight tracking-tighter">HARTELIJK WELKOM <br/><span class="text-primary">BIJ ALMERE POORT.</span></h2>
+<p class="text-2xl text-tertiary/60 mb-12 leading-relaxed font-light italic">
+                        "Het kan, bij Garage Almere Poort!"
+                    </p>
+<p class="text-lg text-on-surface/80 mb-14 leading-relaxed font-light">
+                        Onze garage aan de Argonweg is een begrip in de community. Wij combineren years expertise met de persoonlijke service die u van een lokale specialist mag verwachten. Geen verrassingen, alleen transparant vakmanschap.
+                    </p>
+<div class="grid grid-cols-2 gap-12 mb-16">
+<div class="border-l-2 border-primary/20 pl-6">
+<p class="text-primary font-headline font-bold text-xl uppercase mb-4 tracking-normal">Service</p>
+<p class="text-sm text-tertiary/80 leading-relaxed">Ook voor accu's uit voorraad en SCM-erkende alarmservice.</p>
+</div>
+<div class="border-l-2 border-primary/20 pl-6">
+<p class="text-primary font-headline font-bold text-xl uppercase mb-4 tracking-normal">Faciliteiten</p>
+<p class="text-sm text-tertiary/80 leading-relaxed">Comfortabele wachtruimte met GRATIS WiFi terwijl u wacht.</p>
+</div>
+</div>
+<button class="w-full md:w-auto bg-white/5 border-2 border-primary text-primary px-16 py-6 rounded-2xl font-headline font-bold uppercase hover:bg-primary hover:text-white transition-all tracking-wide shadow-lg">
+                        MEER OVER ONS
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Carousel Section -->
+<section class="reveal py-24 bg-surface overflow-hidden">
+<div class="container mx-auto px-6 mb-16">
+<span class="font-label text-primary uppercase tracking-[0.3em] mb-4 block text-xs font-bold text-center">Wat onze klanten zeggen</span>
+<h2 class="text-4xl font-headline font-bold text-center uppercase tracking-tighter">KLANTENBEOORDELINGEN</h2>
+</div>
+<div class="relative w-full overflow-hidden">
+<div class="carousel-track gap-8 px-4">
+<!-- Review 1 -->
+<div class="w-[350px] shrink-0 bg-surface-container/60 backdrop-blur-md border border-white/5 p-10 rounded-3xl flex flex-col justify-between">
+<div>
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-on-surface font-light leading-relaxed italic text-lg">"Good service. Liked it very much. Professional handling of my car's issues."</p>
+</div>
+<div class="mt-8">
+<p class="font-headline font-bold text-primary uppercase tracking-wider text-sm">Santhana Kumar</p>
+<p class="font-label text-[10px] text-tertiary uppercase tracking-widest mt-1">Geverifieerde Klant</p>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="w-[350px] shrink-0 bg-surface-container/60 backdrop-blur-md border border-white/5 p-10 rounded-3xl flex flex-col justify-between">
+<div>
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-on-surface font-light leading-relaxed italic text-lg">"Really happy with the services. Transparant pricing and quick turnaround for my APK."</p>
+</div>
+<div class="mt-8">
+<p class="font-headline font-bold text-primary uppercase tracking-wider text-sm">Caroline Chebet Mwika</p>
+<p class="font-label text-[10px] text-tertiary uppercase tracking-widest mt-1">Geverifieerde Klant</p>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="w-[350px] shrink-0 bg-surface-container/60 backdrop-blur-md border border-white/5 p-10 rounded-3xl flex flex-col justify-between">
+<div>
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
+</div>
+<p class="text-on-surface font-light leading-relaxed italic text-lg">"Vakkundig uitgevoerd werk. Mijn auto is weer in topconditie na de grote beurt."</p>
+</div>
+<div class="mt-8">
+<p class="font-headline font-bold text-primary uppercase tracking-wider text-sm">Kelly F. M.</p>
+<p class="font-label text-[10px] text-tertiary uppercase tracking-widest mt-1">Geverifieerde Klant</p>
+</div>
+</div>
+<!-- Duplicates for seamless looping -->
+<div class="w-[350px] shrink-0 bg-surface-container/60 backdrop-blur-md border border-white/5 p-10 rounded-3xl flex flex-col justify-between">
+<div>
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-on-surface font-light leading-relaxed italic text-lg">"Good service. Liked it very much. Professional handling of my car's issues."</p>
+</div>
+<div class="mt-8">
+<p class="font-headline font-bold text-primary uppercase tracking-wider text-sm">Santhana Kumar</p>
+<p class="font-label text-[10px] text-tertiary uppercase tracking-widest mt-1">Geverifieerde Klant</p>
+</div>
+</div>
+<div class="w-[350px] shrink-0 bg-surface-container/60 backdrop-blur-md border border-white/5 p-10 rounded-3xl flex flex-col justify-between">
+<div>
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-on-surface font-light leading-relaxed italic text-lg">"Really happy with the services. Transparant pricing and quick turnaround for my APK."</p>
+</div>
+<div class="mt-8">
+<p class="font-headline font-bold text-primary uppercase tracking-wider text-sm">Caroline Chebet Mwika</p>
+<p class="font-label text-[10px] text-tertiary uppercase tracking-widest mt-1">Geverifieerde Klant</p>
+</div>
+</div>
+<div class="w-[350px] shrink-0 bg-surface-container/60 backdrop-blur-md border border-white/5 p-10 rounded-3xl flex flex-col justify-between">
+<div>
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
+</div>
+<p class="text-on-surface font-light leading-relaxed italic text-lg">"Vakkundig uitgevoerd werk. Mijn auto is weer in topconditie na de grote beurt."</p>
+</div>
+<div class="mt-8">
+<p class="font-headline font-bold text-primary uppercase tracking-wider text-sm">Kelly F. M.</p>
+<p class="font-label text-[10px] text-tertiary uppercase tracking-widest mt-1">Geverifieerde Klant</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="reveal relative py-48 bg-primary overflow-hidden clip-slant my-24" id="contact">
+<div class="container mx-auto px-6 md:px-12 relative z-10 text-white">
+<div class="flex flex-col lg:flex-row justify-between items-center gap-16">
+<div class="max-w-3xl text-center lg:text-left">
+<h2 class="text-6xl md:text-8xl font-headline font-bold mb-10 uppercase tracking-tighter leading-none">KOM LANGS <br/>VANDAAG.</h2>
+<p class="text-2xl font-medium opacity-90 max-w-xl leading-relaxed">
+                        Vragen of een afspraak maken? Neem contact met ons op. De receptie is geopend tot 18:00 uur.
+                    </p>
+</div>
+<div class="flex flex-col items-center lg:items-end gap-10">
+<div class="text-center lg:text-right bg-white/15 backdrop-blur-xl rounded-[2.5rem] border border-white/20 shadow-2xl p-10">
+<p class="font-label text-xs uppercase tracking-[0.2em] mb-6 opacity-80 font-bold">Rechtstreekse Lijn</p>
+<a class="text-5xl md:text-6xl lg:text-7xl font-headline font-bold hover:text-surface transition-colors tracking-tighter" href="tel:0365465528">036 546 5528</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="bg-[#1e2227] text-white pt-24 px-6 md:px-12 pb-12">
+<div class="container mx-auto max-w-7xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 border-b border-white/10 pb-20">
+<!-- Col 1: Brand -->
+<div class="flex flex-col gap-6">
+<div class="text-2xl font-bold tracking-tighter text-[#e1e2e8] flex items-center gap-2 font-headline uppercase">
+<span class="w-1.5 h-6 bg-[#E93C46] rounded-full"></span>
+                    GARAGE ALMERE POORT
+                </div>
+<p class="text-tertiary/70 text-sm leading-relaxed max-w-xs font-light">
+                    Uw allround garage voor onderhoud, reparaties en APK keuringen in Almere. Eerlijk, vakkundig en persoonlijk.
+                </p>
+</div>
+<!-- Col 2: Diensten -->
+<div class="flex flex-col gap-8">
+<h4 class="font-headline font-bold text-sm uppercase tracking-[0.1em]">Diensten</h4>
+<ul class="flex flex-col gap-4 text-sm text-tertiary/70 font-light">
+<li><a class="hover:text-primary transition-colors" href="#">APK Keuring</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Onderhoud</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Airco Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Remmenservice</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Diagnose</a></li>
+</ul>
+</div>
+<!-- Col 3: Bedrijf -->
+<div class="flex flex-col gap-8">
+<h4 class="font-headline font-bold text-sm uppercase tracking-[0.1em]">Bedrijf</h4>
+<ul class="flex flex-col gap-4 text-sm text-tertiary/70 font-light">
+<li><a class="hover:text-primary transition-colors" href="#">Over Ons</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Disclaimer</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<!-- Col 4: Contact -->
+<div class="flex flex-col gap-8">
+<h4 class="font-headline font-bold text-sm uppercase tracking-[0.1em]">Contact</h4>
+<div class="flex flex-col gap-4 text-sm text-tertiary/70 font-light">
+<p class="leading-relaxed">Argonweg 11<br/>1362 AA Almere</p>
+<a class="text-primary font-bold" href="tel:0365465528">036 546 5528</a>
+<p class="text-primary font-bold">Ma-Vr: 08:15 - 18:00</p>
+</div>
+</div>
+</div>
+<!-- Bottom Copyright -->
+<div class="pt-12 flex flex-col md:flex-row justify-between items-start gap-6 text-[10px] uppercase tracking-[0.2em] text-tertiary/40 font-label">
+<p>© 2024 GARAGE ALMERE POORT. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</footer>
+<script>
+    // Sticky Navbar and Initial Nav toggle
+    const mainNav = document.getElementById('main-nav');
+    const initialNav = document.getElementById('initial-nav');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            mainNav.classList.add('scrolled');
+            initialNav.classList.add('hidden');
+        } else {
+            mainNav.classList.remove('scrolled');
+            initialNav.classList.remove('hidden');
+        }
+        
+        // Scroll Reveal Activation
+        const reveals = document.querySelectorAll('.reveal');
+        reveals.forEach(reveal => {
+            const windowHeight = window.innerHeight;
+            const revealTop = reveal.getBoundingClientRect().top;
+            const revealPoint = 150;
+            
+            if (revealTop < windowHeight - revealPoint) {
+                reveal.classList.add('active');
+            }
+        });
+    });
+
+    // Run once on load to show elements already in view
+    window.dispatchEvent(new Event('scroll'));
+</script>
+</body></html>
